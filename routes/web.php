@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('beranda', function () {
     return view('beranda');
 });
+
+Route::get('program', function () {
+    return view('program');
+});
