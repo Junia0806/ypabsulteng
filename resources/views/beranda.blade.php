@@ -26,10 +26,10 @@
     <link href={{ asset('StyleTemplate/assets/vendor/aos/aos.css') }} rel="stylesheet">
     <link href={{ asset('StyleTemplate/assets/vendor/glightbox/css/glightbox.min.css') }} rel="stylesheet">
     <link href={{ asset('StyleTemplate/assets/vendor/swiper/swiper-bundle.min.css') }} rel="stylesheet">
-    <link href={{ asset('StyleTemplate/assets/vendor/remixicon/remixicon.css') }}rel="stylesheet">
+    <link href={{ asset('StyleTemplate/assets/vendor/remixicon/remixicon.css') }} rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href={{ asset('StyleTemplate/assets/css/main.css') }}rel="stylesheet">
+    <link href={{ asset('StyleTemplate/assets/css/main.css') }} rel="stylesheet">
 
 </head>
 
