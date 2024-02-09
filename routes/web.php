@@ -13,14 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('beranda', function () {
     return view('beranda');
-});
+})->name('beranda');
 
-Route::get('program', function () {
+Route::get('/program', function () {
     return view('program');
-});
+})->name('program');
+
+Route::get('/donasi', function () {
+    return view('donasi');
+})->name('donasi');
+
+Route::get('/kontak', function () {
+    return view('kontak');
+})->name('kontak');
+
+Route::get('/struktur pengurus', function () {
+    return view('profil2');
+})->name('profil2');
+
+Route::get('/tentang yayasan', function () {
+    return view('profil1');
+})->name('profil1');

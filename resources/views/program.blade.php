@@ -8,10 +8,8 @@
                 <h3>Ut fugiat aliquam aut non</h3>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                     pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                <a class="cta-btn" href="#">Call To Action</a>
             </div>
         </div>
-
     </div>
 </section><!-- End Call To Action Section -->
 <!-- ======= Recent Blog Posts Section ======= -->

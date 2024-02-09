@@ -41,8 +41,8 @@
 
             <a href="index.html" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="d-flex align-items-center">Nova</h1>
+                 <img src="StyleTemplate/assets/img/favicon.png" alt="">
+                <h1 class="d-flex align-items-center">PEDULI</h1>
             </a>
 
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -50,32 +50,17 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                    <li><a href="{{ route('beranda') }}" >Beranda</a></li>
+                    <li><a href="{{ route('program') }}">Program</a></li>
+                    <li><a href="{{ route('donasi') }}">Donasi</a></li>
+                    <li class="dropdown"><a href="#"><span>Profil</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                        class="bi bi-chevron-down dropdown-indicator"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
-                            <li><a href="#">Dropdown 4</a></li>
+                            <li><a href="{{ route('profil1') }}">Tentang Yayasan</a></li>
+                            <li><a href="{{ route('profil2') }}">Struktur Pengurus</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
                 </ul>
             </nav><!-- .navbar -->
         </div>
@@ -85,7 +70,7 @@
     <main>
       @yield('content')
     </main>
-    
+
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
 
@@ -140,21 +125,6 @@
 
                     </div>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-legal">
-            <div class="container">
-                <div class="copyright">
-                    &copy; Copyright <strong><span>Nova</span></strong>. All Rights Reserved
-                </div>
-                <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                 </div>
             </div>
         </div>
