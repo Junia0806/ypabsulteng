@@ -25,6 +25,14 @@ Route::get('/program', function () {
     return view('program');
 })->name('program');
 
+Route::get('/detail program', function () {
+    return view('detail_program');
+})->name('detail_program');
+
+Route::get('/detail kegiatan', function () {
+    return view('detail_kegiatan');
+})->name('detail_kegiatan');
+
 Route::get('/donasi', function () {
     return view('donasi');
 })->name('donasi');

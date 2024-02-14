@@ -60,8 +60,8 @@
                     <div class="post-box">
                         <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-4.jpg" class="img-fluid"
                                 alt=""></div>
-                        <h3 class="post-title">Bidang penyaluran bantuan bagi masyarakat miskin dan terdampak bencana
-                        </h3>
+                                <a href="blog-details.html" class="readmore stretched-link"><h3 class="post-title">Bidang penyaluran bantuan bagi masyarakat miskin dan terdampak bencana
+                                </h3></a>
                         <p>Dalam Bidang Penyaluran Bantuan, kami fokus pada membantu masyarakat miskin dan yang terdampak bencana. Melalui program ini, kami berupaya memberikan bantuan yang mendesak dan berkelanjutan kepada mereka yang membutuhkan.</p>
                         <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
                                 class="bi bi-arrow-right"></i></a>

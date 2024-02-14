@@ -6,7 +6,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <h3>Bidang Program</h3>
-                    <p>Di setiap bidang program, terdapat beragam kegiatan yang tidak hanya bermanfaat, tetapi juga memberi warna pada pengalaman berbagi kita.</p>
+                    <p>Di setiap bidang program, terdapat beragam kegiatan yang tidak hanya bermanfaat, tetapi juga memberi
+                        warna pada pengalaman berbagi kita.</p>
                 </div>
             </div>
         </div>
@@ -26,8 +27,10 @@
                     <div class="post-box">
                         <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-1.jpg" class="img-fluid"
                                 alt=""></div>
-                        <h3 class="post-title">Bidang Pendidkan Keagamaan Formal dan Non Formal
-                        </h3>
+                        <a href="{{ route('detail_program') }}" class="readmore stretched-link">
+                            <h3 class="post-title">Bidang Pendidkan Keagamaan Formal dan Non Formal
+                            </h3>
+                        </a>
                     </div>
                 </div>
 
@@ -35,8 +38,9 @@
                     <div class="post-box">
                         <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-2.jpg" class="img-fluid"
                                 alt=""></div>
-                        <h3 class="post-title">Bidang Pengembangan dan Pemberdayaan Sosial Budaya Masyarakat</h3>
-                        
+                        <h3 class="post-title" style="cursor: pointer;">Bidang Pengembangan dan Pemberdayaan Sosial Budaya
+                            Masyarakat</h3>
+
                     </div>
                 </div>
 
@@ -44,8 +48,8 @@
                     <div class="post-box">
                         <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-3.jpg" class="img-fluid"
                                 alt=""></div>
-                        <h3 class="post-title">Bidang Penginjilan </h3>
-    
+                        <h3 class="post-title" style="cursor: pointer;">Bidang Penginjilan </h3>
+
                     </div>
                 </div>
 
@@ -53,8 +57,10 @@
                     <div class="post-box">
                         <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-4.jpg" class="img-fluid"
                                 alt=""></div>
-                        <h3 class="post-title">Bidang penyaluran bantuan bagi masyarakat miskin dan terdampak bencana
-                        </h3>
+                        <a href="{{ route('detail_program') }}" class="readmore stretched-link">
+                            <h3 class="post-title">Bidang penyaluran bantuan bagi masyarakat miskin dan terdampak bencana
+                            </h3>
+                        </a>
                     </div>
                 </div>
             </div>
