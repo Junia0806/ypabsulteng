@@ -495,7 +495,7 @@ section {
 .hero {
   width: 100%;
   min-height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/beranda/2.jpg") top center;
   background-size: cover;
   position: relative;
   padding: 120px 0;
@@ -784,6 +784,29 @@ section {
   margin-bottom: 25px;
 }
 
+.call-to-action1 {
+  background: linear-gradient(rgba(27, 47, 69, 0.8), rgba(27, 47, 69, 0.8)), url("../img/program/bg1.jpg") center center;
+  background-size: cover;
+  padding: 100px 0;
+}
+
+@media (min-width: 1365px) {
+  .call-to-action1 {
+    background-attachment: fixed;
+  }
+}
+
+.call-to-action1 h3 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.call-to-action1 p {
+  color: #fff;
+  margin-bottom: 25px;
+}
 .call-to-action .cta-btn {
   font-family: var(--font-default);
   font-weight: 500;
