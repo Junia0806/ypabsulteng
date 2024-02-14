@@ -22,7 +22,7 @@
                     <article class="blog-details">
 
                         <div class="post-img">
-                            <img src="StyleTemplate/assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                            <img src="StyleTemplate/assets/img/blog/blog-1.jpg" alt="" class="img-fluid" style="display: flex; justify-content: center; width:100%; height:30%;">
                         </div>
 
                         <h2 class="title">Bidang Pendidkan Keagamaan Formal dan Non Formal</h2>
