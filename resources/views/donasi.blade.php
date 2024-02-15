@@ -2,13 +2,13 @@
 @section('content')
     <main id="main">
         <!-- ======= Call To Action Section ======= -->
-        <section id="call-to-action" class="call-to-action">
+        <section id="call-to-action" class="call-to-action2">
             <div class="container" data-aos="fade-up">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h3>Ut fugiat aliquam aut non</h3>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                        <h3>Donasi Terbaik</h3>
+                        <p>"Jadilah pilar kebaikan dalam menjalani perjalanan hidup, dengan memberikan donasi terbaik Anda.
+                            Setiap donasi merupakan langkah besar menuju kemajuan dan kesejahteraan bersama."</p>
                     </div>
                 </div>
             </div>
@@ -21,26 +21,30 @@
 
                 <div class="row gy-4" data-aos="fade-up">
                     <div class="col-lg-4">
-                        <img src="StyleTemplate/assets/img/about.jpg" class="img-fluid" alt="">
+                        <img src="StyleTemplate/assets/img/donasi/1d.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-8">
                         <div class="content ps-lg-5">
-                            <h3>Voluptatem dignissimos provident quasi</h3>
+                            <h3>Hidup Lebih Bermakna Saat Kita Saling Mengasihi Antar Sesama</h3>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident
+                                Mari salurkan donasi Anda untuk mewujudkan impian mereka. Dengan berbagi dan memberi, kita
+                                merasakan makna hidup yang jauh lebih dalam. Salurkan donasi terbaik Anda sekarang.
                             </p>
                             <ul>
-                                <li><i class="bi bi-check-circle-fill"></i> Siapkan niat yang tulus untuk melakukan donasi.</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Donasi dapat disalurkan melalui no.rekening 00735263 a/n Alexander Purba</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Setelah melakukan transfer, konfirmasi dengan mengklik tombol dibawah ini</li>
+                                <li><i class="bi bi-check-circle-fill"></i>Donasi dapat disalurkan melalui nomor rekening
+                                    1510018476405 a/n YAYASAN PEDULI ANAK BANGSA SULTENG</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Simpanlah bukti transaksi donasi yang telah Anda
+                                    lakukan</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Jangan lupa untuk memberikan konfirmasi kepada
+                                    pihak yayasan dengan mengklik tombol berikut.</li>
                             </ul>
-                            <button type="button" class="btn btn-primary"
-                                style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1rem; --bs-btn-border-radius:100px;">
-                                Klik Disini
-                            </button>
+                            <a href="https://wa.me/6281243784440" target="_blank" rel="noopener noreferrer">
+                                <button type="button" class="btn btn-primary"
+                                    style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1rem; --bs-btn-border-radius:100px;">
+                                    Klik Disini
+                                </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>

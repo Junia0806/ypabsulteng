@@ -112,11 +112,9 @@
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                         <h4>Kontak Kami</h4>
-                        <p>Jl.Tg.Harapan I Lrg.Barselona No.3,<br>
-                            Kota Madya Palu Sulawesi Tengah,<br>
-                            Indonesia<br>
-                            <strong>Nomor Telepon:</strong>081243784440<br>
-                            <strong>Email:</strong>yayasanpedulianakbangsasulteng@gmail.com<br>
+                        <p> Jl. Tanjung Harapan Lorong Barcelona,<br> RT/RW 001/001, Tatura, Palu, <br>Sulawesi Tengah, 94236 <br>
+                            <strong>Nomor Telepon:</strong> 081243784440<br>
+                            <strong>Email:</strong> ypab.sulteng@gmail.com<br>
                         </p>
 
                     </div>

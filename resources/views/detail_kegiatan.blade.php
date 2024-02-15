@@ -21,7 +21,7 @@
 
                     <article class="blog-details">
 
-                        <div class="post-img" style="width:auto; height:500px;">
+                        <div class="post-img">
                             <img src="StyleTemplate/assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
                         </div>
 
@@ -42,14 +42,106 @@
                                 sekitarnya.
                             </p>
                         </div><!-- End post content -->
-                        <div>
-                            <strong><p>Tempat Infinity Slider Foto Kegiatan</p></strong>
+                        <h2 class="title" style="text-align:center">Dokumentasi Kegiatan</h2>
+                        <br>
+                        <div class="utama">
+                            <div class="container_myslide">
+                                <div class="mySlides">
+                                    <div class="numbertext">1 / 5</div>
+                                    <img src="StyleTemplate/assets/img/blog/blog-1.jpg" style="width:100%;" class="img_myslide">
+                                </div>
+    
+                                <div class="mySlides">
+                                    <div class="numbertext">2 / 5</div>
+                                    <img src="StyleTemplate/assets/img/blog/blog-2.jpg" style="width:100%" class="img_myslide">
+                                </div>
+    
+                                <div class="mySlides">
+                                    <div class="numbertext">3 / 5</div>
+                                    <img src="StyleTemplate/assets/img/blog/blog-3.jpg" style="width:100%" class="img_myslide">
+                                </div>
+    
+                                <div class="mySlides">
+                                    <div class="numbertext">4 / 5</div>
+                                    <img src="StyleTemplate/assets/img/blog/blog-4.jpg" style="width:100%" class="img_myslide">
+                                </div>
+    
+                                <div class="mySlides">
+                                    <div class="numbertext">5 / 5</div>
+                                    <img src="StyleTemplate/assets/img/blog/blog-5.jpg" style="width:100%" class="img_myslide">
+                                </div>
+    
+                                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                <a class="next" onclick="plusSlides(1)">❯</a> 
+    
+                                <div class="caption-container">
+                                    <p id="caption"></p>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="column">
+                                        <img class="demo cursor" src="StyleTemplate/assets/img/blog/blog-1.jpg"
+                                            style="width:100%" onclick="currentSlide(1)" alt="Dokumentasi 1">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="StyleTemplate/assets/img/blog/blog-2.jpg"
+                                            style="width:100%" onclick="currentSlide(2)" alt="Dokumentasi 2">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="StyleTemplate/assets/img/blog/blog-3.jpg"
+                                            style="width:100%" onclick="currentSlide(3)" alt="Dokumentasi 3">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="StyleTemplate/assets/img/blog/blog-4.jpg"
+                                            style="width:100%" onclick="currentSlide(4)" alt="Dokumentasi 4">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="StyleTemplate/assets/img/blog/blog-5.jpg"
+                                            style="width:100%" onclick="currentSlide(5)" alt="Dokumentasi 5">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </article><!-- End blog post -->
                   
                 </div>
             </div>
-
         </div>
     </section><!-- End Blog Details Section -->
 @endsection
+
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
