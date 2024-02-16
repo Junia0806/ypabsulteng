@@ -1,27 +1,29 @@
 @extends('layout.default')
 @section('content')
     <main id="main">
-
-        <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs d-flex align-items-center"
-            style="background-image: url('StyleTemplate/assets/img/team-header.jpg');">
-            <div class="container position-relative d-flex flex-column align-items-center">
-                <h2 class="title">Struktur Pengurus</h2>
+        <!-- ======= Call To Action Section ======= -->
+        <section id="call-to-action" class="call-to-action1">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h3>Struktur Pengurus</h3>
+                    </div>
+                </div>
             </div>
-        </div><!-- End Breadcrumbs -->
+        </section><!-- End Call To Action Section -->
 
         <!-- ======= Team Section ======= -->
         <section id="team" class="team">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>Our Team</h2>
+                    <h2>Pengurus Yayasan</h2>
 
                 </div>
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="team-member">
                             <div class="member-img">
                                 <img src="StyleTemplate/assets/img/team/team-1.jpg" class="img-fluid" alt="">
@@ -39,7 +41,7 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="team-member">
                             <div class="member-img">
                                 <img src="StyleTemplate/assets/img/team/team-2.jpg" class="img-fluid" alt="">
@@ -57,7 +59,7 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="team-member">
                             <div class="member-img">
                                 <img src="StyleTemplate/assets/img/team/team-3.jpg" class="img-fluid" alt="">
@@ -75,23 +77,6 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="StyleTemplate/assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
 
                 </div>
 
