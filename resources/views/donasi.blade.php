@@ -7,8 +7,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
                         <h3>Donasi Terbaik</h3>
-                        <p>"Jadilah pilar kebaikan dalam menjalani perjalanan hidup, dengan memberikan donasi terbaik Anda.
-                            Setiap donasi merupakan langkah besar menuju kemajuan dan kesejahteraan bersama."</p>
+                        <p>Jadilah pilar kebaikan dengan donasi terbaik Anda karena setiap uluran tangan Anda akan membawa kemajuan dan
+                            kesejahteraan bersama.</p>
                     </div>
                 </div>
             </div>

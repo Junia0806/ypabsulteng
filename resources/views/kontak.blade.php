@@ -4,19 +4,19 @@
 
     <main id="main">
 
-        <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs d-flex align-items-center"
-            style="background-image: url('StyleTemplate/assets/img/contact-header.jpg');">
-            <div class="container position-relative d-flex flex-column align-items-center">
-
-                <h2>Contact</h2>
-                <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Contact</li>
-                </ol>
-
+        <!-- ======= Call To Action Section ======= -->
+        <section id="call-to-action" class="call-to-action">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h3>Hubungi Kami</h3>
+                        <p>Jangan ragu untuk turut serta memberikan perlindungan dan kesempatan bagi anak-anak Indonesia
+                            bersama Yayasan Peduli Anak Bangsa Indonesia. </p>
+                    </div>
+                </div>
             </div>
-        </div><!-- End Breadcrumbs -->
+        </section>
+        <!-- End Call To Action Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
