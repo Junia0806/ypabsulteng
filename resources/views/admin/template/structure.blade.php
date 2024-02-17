@@ -97,7 +97,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Anggota Dewan</span>
+            <span class="nav-link-text ms-1">Struktur Anggota</span>
           </a>
         </li>
         <li class="nav-item">
