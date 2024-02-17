@@ -60,7 +60,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Fitur Web</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('program') ? 'active' : '' }}" href={{ route('program') }}>
+          <a class="nav-link {{ request()->routeIs('program') ? 'active' : '' }} {{ request()->routeIs('kelola') ? 'active' : '' }}" href={{ route('program') }}>
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>customer-support</title>
@@ -80,7 +80,7 @@
             <span class="nav-link-text ms-1">Program</span>
           </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link {{ request()->routeIs('dewan') ? 'active' : '' }}" href={{ route('dewan') }}>
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -121,7 +121,7 @@
             </div>
             <span class="nav-link-text ms-1">Informasi</span>
           </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </aside>
@@ -132,7 +132,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark">Admin</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{ $context }}</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{ request()->routeIs('kelola') ? 'Program / ' : '' }}{{ $context }}</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">{{ $context }}</h6>
         </nav>
@@ -142,7 +142,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+              <a href={{ route('login') }} class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Logout</span>
               </a>

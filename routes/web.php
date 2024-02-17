@@ -18,21 +18,25 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin.coba');
-});
+    return view('admin.login');
+})->name('login');
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard', ['context' => 'Dashboard', 'number' => 1]);
+    return view('admin.dashboard', ['context' => 'Dashboard']);
 })->name('dashboard');
 
 Route::get('/admin/program', function () {
-    return view('admin.program', ['context' => 'Program', 'number' => 2]);
+    return view('admin.program', ['context' => 'Program']);
 })->name('program');
 
+Route::get('/admin/program/kelola', function () {
+    return view('admin.kelola', ['context' => 'Kelola']);
+})->name('kelola');
+
 Route::get('/admin/dewan', function () {
-    return view('admin.dewan', ['context' => 'Struktur Anggota', 'number' => 3]);
+    return view('admin.dewan', ['context' => 'Struktur Anggota']);
 })->name('dewan');
 
 Route::get('/admin/informasi', function () {
-    return view('admin.informasi', ['context' => 'Informasi', 'number' => 4]);
+    return view('admin.informasi', ['context' => 'Informasi']);
 })->name('informasi');

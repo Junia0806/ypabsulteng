@@ -1,13 +1,13 @@
 @extends('admin.template.structure')
 @section('content')
-    <div class="row">
+  <div class="row">
         <div class="col-6 d-flex align-items-center">
-            <h2>Program</h2>
+            <h2>Kelola Bidang Afirmasi</h2>
         </div>
         <div class="col-6 text-end">
             <button type="button" class="btn bg-gradient-dark mb-0" data-bs-toggle="modal"
                 data-bs-target="#exampleModalMessage">
-                &nbsp;&nbsp;Tambah Program
+                &nbsp;&nbsp;Tambah Sub - Program
             </button>
 
         </div>
@@ -24,10 +24,7 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                             Program</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Thumbnail</th>
-                                        <th colspan="3"
+                                        <th colspan="2"
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Aksi</th>
                                     </tr>
@@ -41,12 +38,6 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div>
-                                                <img src={{ asset('AdminUI/assets/img/team-2.jpg') }}
-                                                    class="avatar avatar-sm me-3" alt="user1">
-                                            </div>
-                                        </td>
                                         <td class="align-middle">
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                 data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal"
@@ -58,12 +49,6 @@
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                 data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal" data-bs-target="#modal-notification">
                                                 <i class="fas fa-trash"></i> Hapus
-                                            </a>
-                                        </td>
-                                        <td class="align-middle">
-                                            <a href={{ route('kelola') }} class="text-secondary font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user">
-                                                <i class="fas fa-cog"></i> Kelola
                                             </a>
                                         </td>
                                     </tr>
