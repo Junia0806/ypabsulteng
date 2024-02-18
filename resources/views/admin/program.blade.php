@@ -124,7 +124,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-
+                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn bg-gradient-primary">Simpan</button>
                     </div>
                 </div>

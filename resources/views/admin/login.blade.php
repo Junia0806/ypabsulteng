@@ -63,7 +63,7 @@
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-3 text-sm mx-auto">
+                  <p class="mb-3 text-sm mx-auto" style="color: red">
                    Gunakan akun khusus Admin untuk Login
                   </p>
                 </div>
