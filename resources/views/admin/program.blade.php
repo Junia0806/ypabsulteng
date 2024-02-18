@@ -5,7 +5,7 @@
             <h2>Program</h2>
         </div>
         <div class="col-6 text-end">
-            <button type="button" class="btn bg-gradient-dark mb-0" data-bs-toggle="modal"
+            <button type="button" class="btn bg-gradient-primary mb-0" data-bs-toggle="modal"
                 data-bs-target="#exampleModalMessage">
                 Tambah Program
             </button>
@@ -108,7 +108,7 @@
                                     Thumbnail:</label>
                                 <div
                                     style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
-                                    <input type="file" id="imageInput" name="images[]" accept="image/*" multiple
+                                    <input type="file" id="imageInput" name="images[]" accept="image/*"
                                         style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
                                         onchange="displayFileName()">
                                     <div class="text-center">
@@ -120,9 +120,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <p style= "color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
                         </form>
                     </div>
                     <div class="modal-footer">
+
                         <button type="button" class="btn bg-gradient-primary">Simpan</button>
                     </div>
                 </div>
@@ -160,7 +162,7 @@
                                     Thumbnail:</label>
                                 <div
                                     style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
-                                    <input type="file" id="imageInput" name="images[]" accept="image/*" multiple
+                                    <input type="file" id="imageInput" name="images[]" accept="image/*"
                                         style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
                                         onchange="displayFileName()">
                                     <div class="text-center">
@@ -172,6 +174,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <p style= "color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -197,8 +200,8 @@
                 <div class="modal-body">
                     <div class="py-3 text-center">
                         <i class="ni ni-bell-55 ni-3x"></i>
-                        <h4 class="text-gradient text-danger mt-4">You should read this!</h4>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <h4 class="text-gradient text-danger mt-4">Konfirmasi</h4>
+                        <p>Apakah Anda yakin untuk menghapus data secara permanen?</p>
                     </div>
                 </div>
                 <div class="modal-footer">
