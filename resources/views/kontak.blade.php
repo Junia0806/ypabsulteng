@@ -30,8 +30,7 @@
                             <i class="bi bi-geo-alt flex-shrink-0"></i>
                             <div>
                                 <h4>Lokasi:</h4>
-                                <p> Jl. Tanjung Harapan Lorong Barcelona, RT/RW 001/001, Tatura, Palu, Sulawesi Tengah,
-                                    94236
+                                <p>{{ $alamat }}
                                 </p>
                             </div>
                         </div><!-- End Info Item -->
@@ -40,7 +39,7 @@
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
                                 <h4>Email:</h4>
-                                <p>ypab.sulteng@gmail.com</p>
+                                <p>{{ $email }}</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -48,7 +47,7 @@
                             <i class="bi bi-phone flex-shrink-0"></i>
                             <div>
                                 <h4>Nomor Telepon:</h4>
-                                <p>081243784440</p>
+                                <p>{{ $notelp}}</p>
                             </div>
                         </div><!-- End Info Item -->
 

@@ -38,7 +38,7 @@
                                 <li><i class="bi bi-check-circle-fill"></i> Jangan lupa untuk memberikan konfirmasi kepada
                                     pihak yayasan dengan mengklik tombol berikut.</li>
                             </ul>
-                            <a href="https://wa.me/6281243784440" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/{{ $notelp }}" target="_blank" rel="noopener noreferrer">
                                 <button type="button" class="btn btn-primary"
                                     style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1rem; --bs-btn-border-radius:100px;">
                                     Klik Disini

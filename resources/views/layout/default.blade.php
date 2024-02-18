@@ -112,9 +112,9 @@
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                         <h4>Kontak Kami</h4>
-                        <p> Jl. Tanjung Harapan Lorong Barcelona,<br> RT/RW 001/001, Tatura, Palu, <br>Sulawesi Tengah, 94236 <br>
-                            <strong>Nomor Telepon:</strong> 081243784440<br>
-                            <strong>Email:</strong> ypab.sulteng@gmail.com<br>
+                        <p> {{ $alamat }}<br>
+                            <strong>Nomor Telepon:</strong> {{ $notelp }}<br>
+                            <strong>Email:</strong> {{ $email }} <br>
                         </p>
 
                     </div>

@@ -1,6 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController\BerandaController;
+use App\Http\Controllers\UserController\DetailProgramController;
+use App\Http\Controllers\UserController\DonasiController;
+use App\Http\Controllers\UserController\KegiatanController;
+use App\Http\Controllers\UserController\KontakController;
+use App\Http\Controllers\UserController\PengurusController;
+use App\Http\Controllers\UserController\ProgramController;
+use App\Http\Controllers\UserController\TentangController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,38 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function () {
-    return view('beranda');
-})->name('beranda');
-
-Route::get('/program', function () {
-    return view('program');
-})->name('program');
-
-Route::get('/detail program', function () {
-    return view('detail_program');
-})->name('detail_program');
-
-Route::get('/detail kegiatan', function () {
-    return view('detail_kegiatan');
-})->name('detail_kegiatan');
-
-Route::get('/donasi', function () {
-    return view('donasi');
-})->name('donasi');
-
-Route::get('/kontak', function () {
-    return view('kontak');
-})->name('kontak');
-
-Route::get('/struktur pengurus', function () {
-    return view('profil2');
-})->name('profil2');
-
-Route::get('/tentang yayasan', function () {
-    return view('profil1');
-})->name('profil1');
+// User Panel Controller
+Route::get('/', [BerandaController::Class,'index'])->name('beranda');
+Route::get('/program', [ProgramController::Class,'index'])->name('program');
+Route::get('/detail-program', [DetailProgramController::Class,'index'])->name('detail_program');
+Route::get('/detail-kegiatan', [KegiatanController::Class,'index'])->name('detail_kegiatan');
+Route::get('/donasi', [DonasiController::Class,'index'])->name('donasi');
+Route::get('/kontak', [KontakController::Class,'index'])->name('kontak');
+Route::get('/struktur-pengurus', [PengurusController::Class,'index'])->name('profil2');
+Route::get('/tentang', [TentangController::Class,'index'])->name('profil1');

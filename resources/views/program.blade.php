@@ -18,53 +18,20 @@
 
             <div class="section-header">
                 <h2>Bidang Program Kami</h2>
-
             </div>
 
             <div class="row gy-5">
-
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="post-box">
-                        <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-1.jpg" class="img-fluid"
-                                alt=""></div>
-                        <a href="{{ route('detail_program') }}" class="readmore stretched-link">
-                            <h3 class="post-title">Bidang Pendidkan Keagamaan Formal dan Non Formal
-                            </h3>
-                        </a>
+                @foreach ($programs as $pr)
+                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="post-box">
+                            <div class="post-img">
+                                <img src="{{ asset('StyleTemplate/assets/img/blog/' . $pr['thumbnail']) }}" class="img-fluid" alt="">
+                            </div>
+                            <a href="{{ route('detail_program', ['thumbnail' => $pr['thumbnail'], 'nama_program' => $pr['nama_program'], 'id' => $pr['id']]) }}" class="readmore stretched-link">
+                                <h3 class="post-title">{{ $pr['nama_program'] }} </h3>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="post-box">
-                        <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-2.jpg" class="img-fluid"
-                                alt=""></div>
-                        <h3 class="post-title" style="cursor: pointer;">Bidang Pengembangan dan Pemberdayaan Sosial Budaya
-                            Masyarakat</h3>
-
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="post-box">
-                        <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-3.jpg" class="img-fluid"
-                                alt=""></div>
-                        <h3 class="post-title" style="cursor: pointer;">Bidang Penginjilan </h3>
-
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="post-box">
-                        <div class="post-img"><img src="StyleTemplate/assets/img/blog/blog-4.jpg" class="img-fluid"
-                                alt=""></div>
-                        <a href="{{ route('detail_program') }}" class="readmore stretched-link">
-                            <h3 class="post-title">Bidang penyaluran bantuan bagi masyarakat miskin dan terdampak bencana
-                            </h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+                @endforeach
     </section><!-- End Recent Blog Posts Section -->
 @endsection

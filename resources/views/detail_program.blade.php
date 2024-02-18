@@ -22,18 +22,16 @@
                     <article class="blog-details">
 
                         <div class="post-img">
-                            <img src="StyleTemplate/assets/img/blog/blog-1.jpg" alt="" class="img-fluid" style="display: flex; justify-content: center; width:100%; height:30%;">
+                            <img src={{ asset('StyleTemplate/assets/img/blog/' . $detailsProgram['thumbnail']) }}
+                                alt="" class="img-fluid"
+                                style="display: flex; justify-content: center; width:100%; height:30%;">
                         </div>
 
-                        <h2 class="title">Bidang Pendidkan Keagamaan Formal dan Non Formal</h2>
+                        <h2 class="title">{{ $detailsProgram['nama_program'] }}</h2>
 
                         <div class="content">
                             <p>
-                                Bidang Pendidikan Keagamaan Formal dan Non Formal merupakan program dari Yayasan Peduli Anak
-                                Bangsa Indonesia yang bertujuan untuk meningkatkan taraf hidup pendidikan anak-anak bangsa.
-                                Program ini mencakup berbagai kegiatan seperti sekolah minggu dan bantuan untuk Sekolah
-                                Menengah Theologi Kristen Sulawesi Tengah, dengan fokus pada penyediaan akses dan pelayanan
-                                pendidikan yang berkualitas serta memperkuat nilai-nilai keagamaan.
+                                {{ $detailsProgram['deskripsi_program'] }}
                             </p>
                         </div><!-- End post content -->
 
@@ -49,23 +47,16 @@
 
                             <div class="mt-3">
 
-                                <div class="post-item mt-3">
-                                    <img src="StyleTemplate/assets/img/blog/blog-recent-1.jpg" alt=""
-                                        class="flex-shrink-0">
-                                    <div>
-                                        <h4><a href="{{ route('detail_kegiatan') }}" >Sekolah Menengah Theologi Kristen Sulawesi Tengah
-                                            </a></h4>
-                                    </div>
-                                </div><!-- End recent post item-->
-
-                                <div class="post-item mt-3">
-                                    <img src="StyleTemplate/assets/img/blog/blog-recent-1.jpg" alt=""
-                                        class="flex-shrink-0">
-                                    <div>
-                                        <h4><a href="blog-post.html">Pembinaan anak-anak sekolah minggu
-                                            </a></h4>
-                                    </div>
-                                </div><!-- End recent post item-->
+                                @foreach ($subProgram as $subPro)
+                                    <div class="post-item mt-3">
+                                        <img src="{{ asset('StyleTemplate/assets/img/blog/' . $subPro['photo']) }}" alt=""
+                                            class="flex-shrink-0">
+                                        <div>
+                                            <h4><a href="{{ route('detail_kegiatan') }}">{{ $subPro['title'] }}
+                                                </a></h4>
+                                        </div>
+                                    </div><!-- End recent post item-->
+                                @endforeach
 
                             </div>
 
