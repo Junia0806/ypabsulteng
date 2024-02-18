@@ -1,6 +1,6 @@
 @extends('admin.template.structure')
 @section('content')
-  <div class="row">
+    <div class="row">
         <div class="col-6 d-flex align-items-center">
             <h2>Kelola Bidang Afirmasi</h2>
         </div>
@@ -41,13 +41,14 @@
                                         <td class="align-middle">
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                 data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal"
-                data-bs-target="#exampleModalMessage2">
+                                                data-bs-target="#exampleModalMessage2">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
                                         </td>
                                         <td class="align-middle">
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal" data-bs-target="#modal-notification">
+                                                data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal"
+                                                data-bs-target="#modal-notification">
                                                 <i class="fas fa-trash"></i> Hapus
                                             </a>
                                         </td>
@@ -137,26 +138,27 @@
     </div>
 
     {{-- Hapus Program --}}
-    <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
-      <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h6 class="modal-title" id="modal-title-notification">Peringatan!</h6>
-            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="py-3 text-center">
-              <i class="ni ni-bell-55 ni-3x"></i>
-              <h4 class="text-gradient text-danger mt-4">You should read this!</h4>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+    <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification"
+        aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modal-title-notification">Peringatan!</h6>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="py-3 text-center">
+                        <i class="ni ni-bell-55 ni-3x"></i>
+                        <h4 class="text-gradient text-danger mt-4">You should read this!</h4>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Ok, Hapus!</button>
+                </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger">Ok, Hapus!</button>
-          </div>
         </div>
-      </div>
     </div>
 @endsection

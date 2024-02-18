@@ -7,7 +7,7 @@
         <div class="col-6 text-end">
             <button type="button" class="btn bg-gradient-dark mb-0" data-bs-toggle="modal"
                 data-bs-target="#exampleModalMessage">
-                &nbsp;&nbsp;Tambah Program
+                Tambah Program
             </button>
 
         </div>
@@ -50,13 +50,14 @@
                                         <td class="align-middle">
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                 data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal"
-                data-bs-target="#exampleModalMessage2">
+                                                data-bs-target="#exampleModalMessage2">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
                                         </td>
                                         <td class="align-middle">
                                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal" data-bs-target="#modal-notification">
+                                                data-toggle="tooltip" data-original-title="Edit user" data-bs-toggle="modal"
+                                                data-bs-target="#modal-notification">
                                                 <i class="fas fa-trash"></i> Hapus
                                             </a>
                                         </td>
@@ -95,19 +96,34 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="hidden" class="form-control" value="id" id="recipient-name">
-                                <input type="text" class="form-control" value="Creative Tim" id="recipient-name">
+                                <label for="nama-program" class="col-form-label">Nama Program:</label>
+                                <input type="text" class="form-control" value="Bidang " id="nama-program">
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="col-form-label">Message:</label>
+                                <label for="message-text" class="col-form-label">Deskripsi:</label>
                                 <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageInput" class="col-form-label">Upload
+                                    Thumbnail:</label>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
+                                    <input type="file" id="imageInput" name="images[]" accept="image/*" multiple
+                                        style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
+                                        onchange="displayFileName()">
+                                    <div class="text-center">
+                                        <p style= "text-color:gray-500; font-size:14px;">Tarik dan lepas gambar
+                                            atau klik di sini</p>
+                                        <p id="fileName"
+                                            style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;"
+                                            class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn bg-gradient-primary">Send message</button>
+                        <button type="button" class="btn bg-gradient-primary">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -132,19 +148,35 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="hidden" class="form-control" value="id" id="recipient-name">
-                                <input type="text" class="form-control" value="Creative Tim" id="recipient-name">
+                                <label for="nama-program" class="col-form-label">Nama Program:</label>
+                                <input type="text" class="form-control" id="nama-program">
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="col-form-label">Message:</label>
+                                <label for="message-text" class="col-form-label">Deskripsi:</label>
                                 <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageInput" class="col-form-label">Upload
+                                    Thumbnail:</label>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
+                                    <input type="file" id="imageInput" name="images[]" accept="image/*" multiple
+                                        style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
+                                        onchange="displayFileName()">
+                                    <div class="text-center">
+                                        <p style= "text-color:gray-500; font-size:14px;">Tarik dan lepas gambar
+                                            atau klik di sini</p>
+                                        <p id="fileName"
+                                            style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;"
+                                            class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn bg-gradient-primary">Send message</button>
+                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn bg-gradient-primary">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -152,26 +184,39 @@
     </div>
 
     {{-- Hapus Program --}}
-    <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
-      <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h6 class="modal-title" id="modal-title-notification">Peringatan!</h6>
-            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="py-3 text-center">
-              <i class="ni ni-bell-55 ni-3x"></i>
-              <h4 class="text-gradient text-danger mt-4">You should read this!</h4>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+    <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification"
+        aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modal-title-notification">Peringatan!</h6>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="py-3 text-center">
+                        <i class="ni ni-bell-55 ni-3x"></i>
+                        <h4 class="text-gradient text-danger mt-4">You should read this!</h4>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Ok, Hapus!</button>
+                </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger">Ok, Hapus!</button>
-          </div>
         </div>
-      </div>
     </div>
+    <script>
+        function displayFileName() {
+            const input = document.getElementById('imageInput');
+            const fileNameDisplay = document.getElementById('fileName');
+            fileNameDisplay.textContent = '';
+            if (input.files.length > 0) {
+                for (const f of input.files) {
+                    fileNameDisplay.textContent += f.name + '\n'
+                }
+            }
+        }
+    </script>
 @endsection
