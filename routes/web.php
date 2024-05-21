@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SubprogramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +27,8 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard', ['context' => 'Dashboard']);
 })->name('dashboard');
 
-Route::get('/admin/program', function () {
-    return view('admin.program', ['context' => 'Program']);
-})->name('program');
-
-Route::get('/admin/program/kelola', function () {
-    return view('admin.kelola', ['context' => 'Kelola']);
-})->name('kelola');
+Route::get('/admin/program',[ProgramController::class, 'index'])->name('program');
+Route::get('/admin/program/kelola', [SubprogramController::class, 'index'])->name('kelola');
 
 Route::get('/admin/dewan', function () {
     return view('admin.dewan', ['context' => 'Struktur Anggota']);

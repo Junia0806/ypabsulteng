@@ -17,6 +17,7 @@ class CreateDewansTable extends Migration
             $table->id();
             $table->string("nama_dewan");
             $table->string("jabatan");
+            $table->string('nama_gambar')->nullable();
             $table->timestamps();
         });
     }
