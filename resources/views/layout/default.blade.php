@@ -12,6 +12,9 @@
     <!-- Favicons -->
     <link href={{ asset('StyleTemplate/assets/img/logo.png') }} rel="icon">
     <link href={{ asset('StyleTemplate/assets/img/apple-touch-icon.png') }} rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,8 +44,7 @@
 
             <a href="{{ route('beranda') }}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="StyleTemplate/assets/img/logo.png" alt="" width="auto" height="400">
-                <h1 class="d-flex align-items-center">PEDULI</h1>
+                <img src="StyleTemplate/assets/img/kemitraan/logoy2.png" alt="" width="300" height="900">
             </a>
 
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -93,30 +95,32 @@
                     <div class="col-lg-2 col-6 footer-links">
                         <h4>Fitur Tersedia</h4>
                         <ul>
-                            <li><i class="bi bi-dash"></i> <a href="#">Beranda</a></li>
-                            <li><i class="bi bi-dash"></i> <a href="#">Program</a></li>
-                            <li><i class="bi bi-dash"></i> <a href="#">Donasi</a></li>
-                           
+                            <li><i class="bi bi-house-door-fill"></i><a href="#">Beranda</a></li>
+                            <li><i class="fas fa-hands-helping"></i>
+                                <a href="#">Program</a>
+                            </li>
+                            <li><i class="fa-solid fa-hand-holding-heart"></i><a href="#">Donasi</a></li>
+
                         </ul>
                     </div>
 
                     <div class="col-lg-2 col-6 footer-links">
                         <h4> </h4>
                         <ul>
-                            <li><i class="bi bi-dash"></i> <a href="#">Tentang Yayasan</a></li>
-                            <li><i class="bi bi-dash"></i> <a href="#">Struktur Pengurus</a></li>
-                            <li><i class="bi bi-dash"></i> <a href="#">Kontak</a></li>
+                            <li><i class="fa-solid fa-globe"></i> <a href="#">Tentang Yayasan</a></li>
+                            <li><i class="fa-solid fa-users"></i> <a href="#">Struktur Pengurus</a></li>
+                            <li><i class="fa-solid fa-phone"></i> <a href="#">Kontak</a></li>
 
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                        <h4>Kontak Kami</h4>
-                        <p> {{ $alamat }}<br>
+                        <h4>Lokasi</h4>
+                        <p> {{ $alamat }}
+                            <h4>Kontak</h4>
                             <strong>Nomor Telepon:</strong> {{ $notelp }}<br>
                             <strong>Email:</strong> {{ $email }} <br>
                         </p>
-
                     </div>
 
                 </div>
