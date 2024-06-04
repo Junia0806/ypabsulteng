@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Program;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SubprogramController extends Controller
@@ -12,8 +14,18 @@ class SubprogramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        $program = DB::table('programs')->where('id_program', $id)->first();
+        $query = DB::table('sub_programs')->where('id_program', $id)->get();
+        
+        // retur nama program
+        // dd($program->nama_program);
+
+        // retur data kelola
+        // dd($query);
+
+
         return view('admin.kelola', ['context' => 'Kelola']);
     }
 

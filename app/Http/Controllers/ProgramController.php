@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Program;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -14,7 +16,13 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        return view('admin.program', ['context' => 'Program']);
+        $query = DB::table('programs')->get();
+        // dd($query);
+        return view('admin.program', 
+        [
+            'context'       => 'Program',
+            'programData'   => $query
+        ]);
     }
 
     /**
@@ -22,9 +30,14 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $program                = new Program;
+        $program->nama_program  = $request->nama_program;
+        $program->deskripsi_program     = $request->deskripsi;
+        $program->thumbnail        = $request->gambar;
+        $program->save();
+        return redirect('admin/program');
     }
 
     /**
@@ -69,7 +82,24 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        // $program                = new Program;
+        // $program->nama_program  = $request->nama_program;
+        // $program->deskripsi_program     = $request->deskripsi;
+        // $program->thumbnail        = $request->gambar;
+        // $program->save();
+        // return redirect('admin/program');
+
+        $program = Program::find($id);
+        if ($program) {
+            $program->nama_program      = $request->nama_program;
+            $program->deskripsi_program = $request->deskripsi;
+            $program->thumbnail         = $request->gambar;
+            $program->save();
+            return redirect()->route('program')->with('success', 'Kriteria berhasil diupdate.');
+        } else {
+            return redirect()->route('program')->with('error', 'Kriteria tidak ditemukan.');
+        }
     }
 
     /**
@@ -80,6 +110,12 @@ class ProgramController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $program = Program::find($id); // Gunakan model programs
+        if ($program) {
+            $program->delete();
+            return redirect()->route('program')->with('success', 'Program berhasil dihapus.');
+        } else {
+            return redirect()->route('program')->with('error', 'Program tidak ditemukan.');
+        }
     }
 }

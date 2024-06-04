@@ -27,8 +27,12 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard', ['context' => 'Dashboard']);
 })->name('dashboard');
 
-Route::get('/admin/program',[ProgramController::class, 'index'])->name('program');
-Route::get('/admin/program/kelola', [SubprogramController::class, 'index'])->name('kelola');
+Route::get('/admin/program', [ProgramController::class, 'index'])->name('program');
+Route::post('/admin/program/create', [ProgramController::class, 'create'])->name('program.create');
+Route::delete('/admin/program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
+Route::put('/admin/program/update/{id}', [ProgramController::class, 'update'])->name('program.update');
+
+Route::get('/admin/program/kelola/{id}', [SubprogramController::class, 'index'])->name('kelola');
 
 Route::get('/admin/dewan', function () {
     return view('admin.dewan', ['context' => 'Struktur Anggota']);
