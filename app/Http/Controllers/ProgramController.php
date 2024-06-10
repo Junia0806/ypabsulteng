@@ -82,14 +82,6 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        // $program                = new Program;
-        // $program->nama_program  = $request->nama_program;
-        // $program->deskripsi_program     = $request->deskripsi;
-        // $program->thumbnail        = $request->gambar;
-        // $program->save();
-        // return redirect('admin/program');
-
         $program = Program::find($id);
         if ($program) {
             $program->nama_program      = $request->nama_program;

@@ -9,7 +9,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Bidang Program</p>
                     <h5 class="font-weight-bolder mb-0">
-                      5
+                      {{ $program }}
                       {{-- <span class="text-success text-sm font-weight-bolder">+55%</span> --}}
                     </h5>
                   </div>
@@ -31,7 +31,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Sub-Program</p>
                     <h5 class="font-weight-bolder mb-0">
-                      13
+                      {{ $subprogram }}
                     </h5>
                   </div>
                 </div>

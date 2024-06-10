@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Program;
+use App\Models\SubProgram;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -26,7 +26,11 @@ class SubprogramController extends Controller
         // dd($query);
 
 
-        return view('admin.kelola', ['context' => 'Kelola']);
+        return view('admin.kelola', [
+            'context'   => $program->nama_program,
+            'id_program'=> $program->id_program,
+            'subData'   => $query
+        ]);
     }
 
     /**
@@ -34,9 +38,15 @@ class SubprogramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $subprogram                 = new SubProgram;
+        $subprogram->id_program     = $request->id_program;
+        $subprogram->nama_sub       = $request->nama_sub;
+        $subprogram->deskripsi_sub  = $request->deskripsi_sub;
+        $subprogram->save();
+
+        return redirect('admin/program/kelola/'. $subprogram->id_program);
     }
 
     /**
@@ -79,10 +89,23 @@ class SubprogramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+   public function update(Request $request, $id)
     {
-        //
+        $subprogram = SubProgram::find($id);
+        if ($subprogram) {
+            $subprogram->id_program         = $request->id_program;
+            $subprogram->nama_sub           = $request->nama_sub;
+            $subprogram->deskripsi_sub      = $request->deskripsi_sub;
+            // $subprogram->thumbnail          = $request->gambar;
+            $subprogram->save();
+
+            // Menggunakan id_program dari request untuk redirect
+            return redirect('admin/program/kelola/' . $request->id_program)->with('success', 'Item berhasil diupdate.');
+        } else {
+            return redirect('admin/program/kelola/' . $request->id_program)->with('error', 'Item tidak ditemukan.');
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -90,8 +113,17 @@ class SubprogramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    
+    public function destroy($id, $id_program)
     {
-        //
+        $subprogram = SubProgram::find($id); // Gunakan model subprograms
+        if ($subprogram) {
+            $subprogram->delete();
+
+            // Menggunakan id_program dari request untuk redirect
+            return redirect('admin/program/kelola/' . $id_program)->with('success', 'Item berhasil dihapus.');
+        } else {
+            return redirect('admin/program/kelola/' . $id_program)->with('error', 'Item tidak ditemukan.');
+        }
     }
 }

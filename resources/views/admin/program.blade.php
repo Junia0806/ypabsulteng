@@ -127,7 +127,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <form method="POST" action="{{ route('program.destroy', $program->id_program) }}">
+                                                        <form method="POST" action="{{ route('program.destroy', $program->id_program) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Ok, Hapus!</button>
