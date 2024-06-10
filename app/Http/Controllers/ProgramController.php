@@ -32,10 +32,27 @@ class ProgramController extends Controller
      */
     public function create(Request $request)
     {
-        $program                = new Program;
-        $program->nama_program  = $request->nama_program;
-        $program->deskripsi_program     = $request->deskripsi;
-        $program->thumbnail        = $request->gambar;
+       // Validasi input
+        $request->validate([
+            'nama_program' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $program = new Program;
+        $program->nama_program = $request->nama_program;
+        $program->deskripsi_program = $request->deskripsi;
+
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            // Ganti spasi dengan tanda hubung pada nama file
+            $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
+            // Simpan file ke storage
+            $filePath = $file->storeAs('uploads/thumbnails', $fileName, 'public');
+            // Simpan path file ke dalam database
+            $program->thumbnail = '/storage/' . $filePath;
+        }
+
         $program->save();
         return redirect('admin/program');
     }

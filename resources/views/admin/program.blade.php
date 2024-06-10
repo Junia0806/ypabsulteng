@@ -44,7 +44,7 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <img src={{ asset('AdminUI/assets/img/team-2.jpg') }}
+                                                    <img src={{ asset($program->thumbnail) }}
                                                         class="avatar avatar-sm me-3" alt="user1">
                                                 </div>
                                             </td>
@@ -163,7 +163,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="{{ route('program.create') }}">
+                        <form method="POST" action="{{ route('program.create') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="nama-program" class="col-form-label">Nama Program:</label>
@@ -174,30 +174,22 @@
                                 <textarea class="form-control" name="deskripsi"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="imageInput" class="col-form-label">Upload
-                                    Thumbnail:</label>
-                                <div
-                                    style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
-                                    <input type="file" id="imageInput" name="gambar" accept="image/*"
-                                        style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
-                                        onchange="displayFileName()">
+                                <label for="imageInput" class="col-form-label">Upload Thumbnail:</label>
+                                <div style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
+                                    <input type="file" id="imageInput" name="thumbnail" accept="image/*" style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;" onchange="displayFileName()">
                                     <div class="text-center">
-                                        <p style= "text-color:gray-500; font-size:14px;">Tarik dan lepas gambar
-                                            atau klik di sini</p>
-                                        <p id="fileName"
-                                            style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;"
-                                            class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
+                                        <p style="text-color:gray-500; font-size:14px;">Tarik dan lepas gambar atau klik di sini</p>
+                                        <p id="fileName" style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;" class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
                                     </div>
                                 </div>
                             </div>
-                            <p style= "color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
+                            <p style="color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
                             <div class="modal-footer">
                                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
                                 <button type="submit" class="btn bg-gradient-primary">Simpan</button>
                             </div>
                         </form>
                     </div>
-                    
                 </div>
             </div>
         </div>
