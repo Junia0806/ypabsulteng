@@ -24,10 +24,6 @@ Route::get('/admin', function () {
     return view('admin.login');
 })->name('login');
 
-// Route::get('/admin/dashboard', function () {
-//     return view('admin.dashboard', ['context' => 'Dashboard']);
-// })->name('dashboard');
-
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/admin/program', [ProgramController::class, 'index'])->name('program');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Program;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProgramController extends Controller
 {
@@ -99,15 +100,41 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Validasi input
+        $request->validate([
+            'nama_program' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Temukan data program berdasarkan id
         $program = Program::find($id);
         if ($program) {
-            $program->nama_program      = $request->nama_program;
+            $program->nama_program = $request->nama_program;
             $program->deskripsi_program = $request->deskripsi;
-            $program->thumbnail         = $request->gambar;
+
+            // Jika ada file thumbnail baru diunggah
+            if ($request->hasFile('thumbnail')) {
+                // Hapus file lama jika ada
+                if ($program->thumbnail) {
+                    Storage::disk('public')->delete(str_replace('/storage/', '', $program->thumbnail));
+                }
+                
+                // Unggah file baru
+                $file = $request->file('thumbnail');
+                $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
+                $filePath = $file->storeAs('uploads/thumbnails', $fileName, 'public');
+                $program->thumbnail = '/storage/' . $filePath;
+            }
+
+            // Simpan perubahan ke dalam database
             $program->save();
-            return redirect()->route('program')->with('success', 'Kriteria berhasil diupdate.');
+
+            // Redirect dengan pesan sukses
+            return redirect()->route('program')->with('success', 'Program berhasil diupdate.');
         } else {
-            return redirect()->route('program')->with('error', 'Kriteria tidak ditemukan.');
+            // Redirect dengan pesan error jika data tidak ditemukan
+            return redirect()->route('program')->with('error', 'Program tidak ditemukan.');
         }
     }
 

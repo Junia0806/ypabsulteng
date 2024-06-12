@@ -33,89 +33,128 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($programData as $program)
+                                    @if ($programData->isEmpty())
                                         <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{ $program->nama_program }} </h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <img src={{ asset($program->thumbnail) }}
-                                                        class="avatar avatar-sm me-3" alt="user1">
-                                                </div>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#exampleModalMessage2-{{ $program->id_program }}">
-                                                    <i class="fas fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-bs-toggle="modal" data-bs-target="#modal-notification-{{ $program->id_program }}">
-                                                    <i class="fas fa-trash"></i> Hapus
-                                                </a>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="{{url('admin/program/kelola')}}/{{$program->id_program}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fas fa-cog"></i> Kelola
-                                                </a>
+                                            <td colspan="5" class="text-center">
+                                                <h4>Tidak ada Data</h4>
+                                                <p>Silahkan untuk menambah data</p>
                                             </td>
                                         </tr>
-
-                                        {{-- Modal Edit Program --}}
-                                        <div class="modal fade" id="exampleModalMessage2-{{ $program->id_program }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Edit Program</h5>
-                                                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
+                                    @else
+                                        @foreach ($programData as $program)
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">{{ $program->nama_program }} </h6>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form method="POST" action="{{ route('program.update', $program->id_program) }}">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="form-group">
-                                                                <label for="nama-program-{{ $program->id_program }}" class="col-form-label">Nama Program:</label>
-                                                                <input type="text" class="form-control" name="nama_program" id="nama-program" value="{{ $program->nama_program }}">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="message-text-{{ $program->id_program }}" class="col-form-label">Deskripsi:</label>
-                                                                <textarea class="form-control" name="deskripsi" id="message-text">{{ $program->deskripsi_program }}</textarea>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="imageInput" class="col-form-label">Upload Thumbnail:</label>
-                                                                <div style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
-                                                                    <input type="file" id="imageInput" name="gambar" accept="image/*" style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;" onchange="displayFileName()">
-                                                                    <div class="text-center">
-                                                                        <p style="color:gray; font-size:14px;">Tarik dan lepas gambar atau klik di sini</p>
-                                                                        <p id="fileName" style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;" class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <img src={{ asset($program->thumbnail) }}
+                                                            class="avatar avatar-sm me-3" alt="user1">
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalMessage2-{{ $program->id_program }}">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </a>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#modal-notification-{{ $program->id_program }}">
+                                                        <i class="fas fa-trash"></i> Hapus
+                                                    </a>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="{{ url('admin/program/kelola') }}/{{ $program->id_program }}"
+                                                        class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        <i class="fas fa-cog"></i> Kelola
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            {{-- Modal Edit Program --}}
+                                            <div class="modal fade" id="exampleModalMessage2-{{ $program->id_program }}"
+                                                tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit Program</h5>
+                                                            <button type="button" class="btn-close text-dark"
+                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST"
+                                                                action="{{ route('program.update', $program->id_program) }}"
+                                                                enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <div class="form-group">
+                                                                    <label for="nama-program-{{ $program->id_program }}"
+                                                                        class="col-form-label">Nama Program:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="nama_program" id="nama-program"
+                                                                        value="{{ $program->nama_program }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="message-text-{{ $program->id_program }}"
+                                                                        class="col-form-label">Deskripsi:</label>
+                                                                    <textarea class="form-control" name="deskripsi" id="message-text">{{ $program->deskripsi_program }}</textarea>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="imageInput" class="col-form-label">Upload
+                                                                        Thumbnail:</label>
+                                                                    <div
+                                                                        style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
+                                                                        <input type="file" id="imageInput"
+                                                                            name="thumbnail" accept="image/*"
+                                                                            style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
+                                                                            onchange="displayFileName()">
+                                                                        <div class="text-center">
+                                                                            <p style="color:gray; font-size:14px;">Tarik dan
+                                                                                lepas gambar atau klik di sini</p>
+                                                                            <p id="fileName"
+                                                                                style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;"
+                                                                                class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap">
+                                                                            </p>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <p style="color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                                                                <button type="submit" class="btn bg-gradient-primary">Simpan</button>
-                                                            </div>
-                                                        </form>
+                                                                <p style="color:red; font-size:12px;">Nb: Upload 1 gambar
+                                                                    untuk Thumbnail Program</p>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn bg-gradient-secondary"
+                                                                        data-bs-dismiss="modal">Batal</button>
+                                                                    <button type="submit"
+                                                                        class="btn bg-gradient-primary">Simpan</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        {{-- Modal Hapus Program --}}
-                                        <div class="modal fade" id="modal-notification-{{ $program->id_program }}" tabindex="-1" role="dialog" aria-labelledby="modal-notification"
+                                            {{-- Modal Hapus Program --}}
+                                            <div class="modal fade" id="modal-notification-{{ $program->id_program }}"
+                                                tabindex="-1" role="dialog" aria-labelledby="modal-notification"
                                                 aria-hidden="true">
-                                                <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                                                <div class="modal-dialog modal-danger modal-dialog-centered modal-"
+                                                    role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h6 class="modal-title" id="modal-title-notification">Peringatan!</h6>
-                                                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                            <h6 class="modal-title" id="modal-title-notification">
+                                                                Peringatan!</h6>
+                                                            <button type="button" class="btn-close text-dark"
+                                                                data-bs-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">×</span>
                                                             </button>
                                                         </div>
@@ -123,20 +162,24 @@
                                                             <div class="py-3 text-center">
                                                                 <i class="ni ni-bell-55 ni-3x"></i>
                                                                 <h4 class="text-gradient text-danger mt-4">Konfirmasi</h4>
-                                                                <p>Apakah Anda yakin untuk menghapus data secara permanen?</p>
+                                                                <p>Apakah Anda yakin untuk menghapus data secara permanen?
+                                                                </p>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                        <form method="POST" action="{{ route('program.destroy', $program->id_program) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Ok, Hapus!</button>
-                                                        </form>
+                                                            <form method="POST"
+                                                                action="{{ route('program.destroy', $program->id_program) }}">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger">Ok,
+                                                                    Hapus!</button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                        </div>
-                                    @endforeach
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -175,17 +218,24 @@
                             </div>
                             <div class="form-group">
                                 <label for="imageInput" class="col-form-label">Upload Thumbnail:</label>
-                                <div style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
-                                    <input type="file" id="imageInput" name="thumbnail" accept="image/*" style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;" onchange="displayFileName()">
+                                <div
+                                    style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
+                                    <input type="file" id="imageInput" name="thumbnail" accept="image/*"
+                                        style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
+                                        onchange="displayFileName()">
                                     <div class="text-center">
-                                        <p style="text-color:gray-500; font-size:14px;">Tarik dan lepas gambar atau klik di sini</p>
-                                        <p id="fileName" style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;" class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
+                                        <p style="text-color:gray-500; font-size:14px;">Tarik dan lepas gambar atau klik di
+                                            sini</p>
+                                        <p id="fileName"
+                                            style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;"
+                                            class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap"></p>
                                     </div>
                                 </div>
                             </div>
                             <p style="color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
                             <div class="modal-footer">
-                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn bg-gradient-secondary"
+                                    data-bs-dismiss="modal">Batal</button>
                                 <button type="submit" class="btn bg-gradient-primary">Simpan</button>
                             </div>
                         </form>
@@ -231,7 +281,7 @@
             </div>
         </div> --}}
     </div>
-    
+
     <script>
         function displayFileName() {
             const input = document.getElementById('imageInput');

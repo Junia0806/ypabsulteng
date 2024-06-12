@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubProgram;
+use App\Models\Picture;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -40,14 +41,39 @@ class SubprogramController extends Controller
      */
     public function create(Request $request)
     {
-        $subprogram                 = new SubProgram;
-        $subprogram->id_program     = $request->id_program;
-        $subprogram->nama_sub       = $request->nama_sub;
-        $subprogram->deskripsi_sub  = $request->deskripsi_sub;
+        // Validasi input
+        $request->validate([
+            'nama_sub' => 'required|string|max:255',
+            'deskripsi_sub' => 'required|string',
+            'gambar' => 'nullable|array|max:5',
+            'gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Buat instance subprogram baru
+        $subprogram = new SubProgram;
+        $subprogram->id_program = $request->id_program;
+        $subprogram->nama_sub = $request->nama_sub;
+        $subprogram->deskripsi_sub = $request->deskripsi_sub;
         $subprogram->save();
 
-        return redirect('admin/program/kelola/'. $subprogram->id_program);
+        // Proses upload gambar jika ada
+        if ($request->hasFile('gambar')) {
+            foreach ($request->file('gambar') as $file) {
+                $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
+                $filePath = $file->storeAs('uploads/subprograms/'.$subprogram->id, $fileName, 'public');
+
+                // Simpan data gambar ke tabel pictures
+                $picture = new Picture;
+                $picture->id_sub = $subprogram->id;
+                $picture->nama_gambar = '/storage/' . $filePath;
+                $picture->save();
+            }
+        }
+
+        // Redirect dengan pesan sukses
+        return redirect('admin/program/kelola/' . $subprogram->id_program)->with('success', 'Subprogram berhasil ditambahkan.');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -89,22 +115,49 @@ class SubprogramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
+        // Validasi input
+        $request->validate([
+            'nama_sub' => 'required|string|max:255',
+            'deskripsi_sub' => 'required|string',
+            'gambar' => 'nullable|array|max:5',
+            'gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $subprogram = SubProgram::find($id);
         if ($subprogram) {
-            $subprogram->id_program         = $request->id_program;
-            $subprogram->nama_sub           = $request->nama_sub;
-            $subprogram->deskripsi_sub      = $request->deskripsi_sub;
-            // $subprogram->thumbnail          = $request->gambar;
+            $subprogram->id_program = $request->id_program;
+            $subprogram->nama_sub = $request->nama_sub;
+            $subprogram->deskripsi_sub = $request->deskripsi_sub;
             $subprogram->save();
 
-            // Menggunakan id_program dari request untuk redirect
-            return redirect('admin/program/kelola/' . $request->id_program)->with('success', 'Item berhasil diupdate.');
+            // Proses upload gambar jika ada
+            if ($request->hasFile('gambar')) {
+                // Hapus gambar lama
+                foreach ($subprogram->picture as $oldPicture) {
+                    Storage::delete('public' . str_replace('/storage/', '', $oldPicture->nama_gambar));
+                    $oldPicture->delete();
+                }
+
+                foreach ($request->file('gambar') as $file) {
+                    $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
+                    $filePath = $file->storeAs('uploads/subprograms', $fileName, 'public');
+
+                    // Simpan data gambar baru ke tabel pictures
+                    $picture = new Picture;
+                    $picture->id_sub = $subprogram->id;
+                    $picture->nama_gambar = '/storage/' . $filePath;
+                    $picture->save();
+                }
+            }
+
+            return redirect('admin/program/kelola/' . $request->id_program)->with('success', 'Subprogram berhasil diupdate.');
         } else {
-            return redirect('admin/program/kelola/' . $request->id_program)->with('error', 'Item tidak ditemukan.');
+            return redirect('admin/program/kelola/' . $request->id_program)->with('error', 'Subprogram tidak ditemukan.');
         }
     }
+
 
 
     /**
