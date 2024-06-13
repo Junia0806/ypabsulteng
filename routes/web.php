@@ -4,6 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SubprogramController;
+use App\Http\Controllers\UserController\BerandaController;
+use App\Http\Controllers\UserController\DetailProgramController;
+use App\Http\Controllers\UserController\DonasiController;
+use App\Http\Controllers\UserController\KegiatanController;
+use App\Http\Controllers\UserController\KontakController;
+use App\Http\Controllers\UserController\PengurusController;
+use App\Http\Controllers\UserController\ProgramController;
+use App\Http\Controllers\UserController\TentangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +51,14 @@ Route::get('/admin/dewan', function () {
 Route::get('/admin/informasi', function () {
     return view('admin.informasi', ['context' => 'Informasi']);
 })->name('informasi');
+
+// User Panel Controller
+Route::get('/', [BerandaController::Class,'index'])->name('beranda');
+Route::get('/program', [ProgramController::Class,'index'])->name('program');
+Route::get('/detail-program', [DetailProgramController::Class,'index'])->name('detail_program');
+Route::get('/detail-kegiatan', [KegiatanController::Class,'index'])->name('detail_kegiatan');
+Route::get('/donasi', [DonasiController::Class,'index'])->name('donasi');
+Route::get('/kontak', [KontakController::Class,'index'])->name('kontak');
+Route::get('/struktur-pengurus', [PengurusController::Class,'index'])->name('profil2');
+Route::get('/tentang', [TentangController::Class,'index'])->name('profil1');
+
