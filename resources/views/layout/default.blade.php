@@ -53,7 +53,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="{{ route('beranda') }}">Beranda</a></li>
-                    <li><a href="{{ route('program') }}">Program</a></li>
+                    <li><a href="{{ route('program-yayasan') }}">Program</a></li>
                     <li><a href="{{ route('donasi') }}">Donasi</a></li>
                     <li class="dropdown"><a href="#"><span>Profil</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
