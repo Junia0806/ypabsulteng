@@ -13,7 +13,7 @@
                         </p> --}}
                     </blockquote>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <a href="{{ route('program') }}" class="btn-get-started">Program Kami</a>
+                        <a href="{{ route('program-yayasan') }}" class="btn-get-started">Program Kami</a>
                         <a href="https://youtu.be/Cdup4DGAQoc?si=ooRooib2T7Du5Dc6"
                             class="glightbox btn-watch-video d-flex align-items-center"><i
                                 class="bi bi-play-circle"></i><span>Video Profil</span></a>
@@ -87,7 +87,7 @@
                     <div class="col-lg-6 text-center">
                         <h3>Mari berbagi kasih dan kebaikan kepada sesama</h3>
                         <p>Menjadi agen perubahan yang membawa cahaya di tengah kegelapan, dengan setiap langkah kecil yang kita ambil, kita bisa membuat perbedaan besar dalam kehidupan orang lain.</p>
-                        <a class="cta-btn" href="{{ route('program') }}">Program Kami</a>
+                        <a class="cta-btn" href="{{ route('program-yayasan') }}">Program Kami</a>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController\DonasiController;
 use App\Http\Controllers\UserController\KegiatanController;
 use App\Http\Controllers\UserController\KontakController;
 use App\Http\Controllers\UserController\PengurusController;
-use App\Http\Controllers\UserController\ProgramController;
+use App\Http\Controllers\UserController\ProgramUserController;
 use App\Http\Controllers\UserController\TentangController;
 
 /*
@@ -54,7 +54,7 @@ Route::get('/admin/informasi', function () {
 
 // User Panel Controller
 Route::get('/', [BerandaController::Class,'index'])->name('beranda');
-Route::get('/program', [ProgramController::Class,'index'])->name('program');
+Route::get('/program', [ProgramUserController::Class,'index'])->name('program-yayasan');
 Route::get('/detail-program', [DetailProgramController::Class,'index'])->name('detail_program');
 Route::get('/detail-kegiatan', [KegiatanController::Class,'index'])->name('detail_kegiatan');
 Route::get('/donasi', [DonasiController::Class,'index'])->name('donasi');
