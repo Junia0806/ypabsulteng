@@ -3,24 +3,18 @@
     "development"
   ],
   "hints": {
-    "no-inline-styles": "off",
-    "axe/name-role-value": "off",
-    "axe/forms": "off",
-    "compat-api/css": [
+    "disown-opener": "off",
+    "axe/structure": [
       "default",
       {
-        "ignore": [
-          "user-select"
-        ]
+        "listitem": "off"
       }
     ],
-    "axe/text-alternatives": [
+    "axe/name-role-value": [
       "default",
       {
-        "document-title": "off"
+        "link-name": "off"
       }
-    ],
-    "axe/language": "off",
-    "meta-charset-utf-8": "off"
+    ]
   }
 }
