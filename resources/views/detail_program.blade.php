@@ -22,7 +22,7 @@
                     <article class="blog-details">
 
                         <div class="post-img">
-                            <img src={{ asset('StyleTemplate/assets/img/blog/' . $detailsProgram['thumbnail']) }}
+                            <img src={{ asset($detailsProgram['thumbnail']) }}
                                 alt="" class="img-fluid"
                                 style="display: flex; justify-content: center; width:100%; height:30%;">
                         </div>
@@ -47,15 +47,16 @@
 
                             <div class="mt-3">
 
-                                @foreach ($subProgram as $subPro)
-                                    <div class="post-item mt-3">
-                                        <img src="{{ asset('StyleTemplate/assets/img/blog/' . $subPro['photo']) }}" alt=""
-                                            class="flex-shrink-0">
-                                        <div>
-                                            <h4><a href="{{ route('detail_kegiatan') }}">{{ $subPro['title'] }}
-                                                </a></h4>
-                                        </div>
-                                    </div><!-- End recent post item-->
+                                @foreach ($subProgram as $subPro) 
+                                        <div class="post-item mt-3">
+                                            <div class="post-img">
+                                                <img src="{{ asset($photo) }}" class="img-fluid" alt="">
+                                            </div>
+                                            <div>
+                                                <h4><a href="{{ route('detail_kegiatan', $subPro->id) }}">{{ $subPro->nama_sub }}
+                                                    </a></h4>
+                                            </div>
+                                        </div><!-- End recent post item-->
                                 @endforeach
 
                             </div>

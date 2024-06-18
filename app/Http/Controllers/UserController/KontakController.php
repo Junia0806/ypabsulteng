@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\UserController;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,12 +10,14 @@ class KontakController extends Controller
 {
     public function index()
     {
+        $data = DB::table('infos')->first();
+
         return view
         ('kontak', 
             [
-                'alamat'    => 'Jl. Tanjung Harapan Lorong Barcelona, RT/RW 001/001, Tatura, Palu, Sulawesi Tengah, 94236',
-                'notelp'    => '081243784440',
-                'email'     => 'ypab.sulteng@gmail.com',
+                'alamat'    => $data->alamat,
+                'notelp'    => $data->no_telp,
+                'email'     => $data->email,
             ]
         );
     }

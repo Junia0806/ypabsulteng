@@ -26,7 +26,6 @@ class SubprogramController extends Controller
         // retur data kelola
         // dd($query);
 
-
         return view('admin.kelola', [
             'context'   => $program->nama_program,
             'id_program'=> $program->id_program,

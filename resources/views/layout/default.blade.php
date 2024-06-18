@@ -44,7 +44,7 @@
 
             <a href="{{ route('beranda') }}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="StyleTemplate/assets/img/kemitraan/logoy2.png" alt="" width="300" height="900">
+                <img src="http://127.0.0.1:8000/StyleTemplate/assets/img/kemitraan/logoy2.png" alt="" width="300" height="900">
             </a>
 
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

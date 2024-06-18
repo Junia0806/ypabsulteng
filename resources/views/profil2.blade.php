@@ -26,7 +26,7 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="team-member">
                             <div class="member-img">
-                                <img src=" {{ asset('StyleTemplate/assets/img/team/' . $dwn['photo']) }} " class="img-fluid" alt="">
+                                <img src=" {{ asset($dwn->nama_gambar) }} " class="img-fluid" alt="">
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -35,8 +35,8 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4> {{ $dwn['nama_dewan'] }}</h4>
-                                <span>{{ $dwn['jabatan'] }}</span>
+                                <h4> {{ $dwn->nama_dewan }}</h4>
+                                <span>{{ $dwn->jabatan }}</span>
                             </div>
                         </div>
                     </div><!-- End Team Member -->

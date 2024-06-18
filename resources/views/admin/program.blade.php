@@ -53,7 +53,7 @@
                                                 <td>
                                                     <div>
                                                         <img src={{ asset($program->thumbnail) }}
-                                                            class="avatar avatar-sm me-3" alt="user1">
+                                                            class="avatar avatar-sm me-3" alt="{{ $program->nama_program }}">
                                                     </div>
                                                 </td>
                                                 <td class="align-middle">
