@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SubprogramController;
@@ -24,6 +25,15 @@ use App\Http\Controllers\UserController\TentangController;
 |
 */
 
+
+// Authentication Routes
+Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/admin/login', [AuthController::class, 'login'])->name('login.post');
+Route::get('/admin/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/admin/register', [AuthController::class, 'register'])->name('register.post');
+Route::get('/admin/logout', [AuthController::class, 'logout'])->name('logout');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,25 +42,28 @@ Route::get('/admin', function () {
     return view('admin.login');
 })->name('login');
 
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth.admin'])->group(function () {
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/admin/program', [ProgramController::class, 'index'])->name('program');
-Route::post('/admin/program/create', [ProgramController::class, 'create'])->name('program.create');
-Route::delete('/admin/program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
-Route::put('/admin/program/update/{id}', [ProgramController::class, 'update'])->name('program.update');
+    Route::get('/admin/program', [ProgramController::class, 'index'])->name('program');
+    Route::post('/admin/program/create', [ProgramController::class, 'create'])->name('program.create');
+    Route::delete('/admin/program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
+    Route::put('/admin/program/update/{id}', [ProgramController::class, 'update'])->name('program.update');
 
-Route::get('/admin/program/kelola/{id}', [SubprogramController::class, 'index'])->name('kelola');
-Route::post('/admin/program/kelola/create', [SubprogramController::class, 'create'])->name('kelola.create');
-Route::delete('/admin/program/kelola/delete/{id}/{id_program}', [SubprogramController::class, 'destroy'])->name('kelola.destroy');
-Route::put('/admin/program/kelola/update/{id}', [SubprogramController::class, 'update'])->name('kelola.update');
+    Route::get('/admin/program/kelola/{id}', [SubprogramController::class, 'index'])->name('kelola');
+    Route::post('/admin/program/kelola/create', [SubprogramController::class, 'create'])->name('kelola.create');
+    Route::delete('/admin/program/kelola/delete/{id}/{id_program}', [SubprogramController::class, 'destroy'])->name('kelola.destroy');
+    Route::put('/admin/program/kelola/update/{id}', [SubprogramController::class, 'update'])->name('kelola.update');
 
-Route::get('/admin/dewan', function () {
-    return view('admin.dewan', ['context' => 'Struktur Anggota']);
-})->name('dewan');
+    Route::get('/admin/dewan', function () {
+        return view('admin.dewan', ['context' => 'Struktur Anggota']);
+    })->name('dewan');
+    Route::get('/admin/informasi', function () {
+        return view('admin.informasi', ['context' => 'Informasi']);
+    })->name('informasi');
 
-Route::get('/admin/informasi', function () {
-    return view('admin.informasi', ['context' => 'Informasi']);
-})->name('informasi');
+});
+
 
 // User Panel Controller
 Route::get('/', [BerandaController::Class,'index'])->name('beranda');
