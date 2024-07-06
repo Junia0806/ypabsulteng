@@ -7,6 +7,8 @@ use App\Models\SubProgram;
 use App\Models\Picture;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image; // Tambahkan ini untuk menggunakan Intervention
 
 class SubprogramController extends Controller
 {
@@ -60,6 +62,15 @@ class SubprogramController extends Controller
             foreach ($request->file('gambar') as $file) {
                 $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
                 $filePath = $file->storeAs('uploads/subprograms/'.$subprogram->id, $fileName, 'public');
+
+                // Resize gambar menggunakan Intervention Image
+                $image = Image::make(public_path('/storage/' . $filePath))->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->encode();
+
+                // Simpan file yang sudah diresize
+                Storage::disk('public')->put($filePath, $image);
 
                 // Simpan data gambar ke tabel pictures
                 $picture = new Picture;
@@ -142,6 +153,15 @@ class SubprogramController extends Controller
                 foreach ($request->file('gambar') as $file) {
                     $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
                     $filePath = $file->storeAs('uploads/subprograms', $fileName, 'public');
+
+                    // Resize gambar menggunakan Intervention Image
+                    $image = Image::make(public_path('/storage/' . $filePath))->resize(300, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })->encode();
+
+                    // Simpan file yang sudah diresize
+                    Storage::disk('public')->put($filePath, $image);
 
                     // Simpan data gambar baru ke tabel pictures
                     $picture = new Picture;

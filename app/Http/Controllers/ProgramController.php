@@ -7,6 +7,7 @@ use App\Models\Program;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image; // Tambahkan ini untuk menggunakan Intervention
 
 class ProgramController extends Controller
 {
@@ -33,7 +34,7 @@ class ProgramController extends Controller
      */
     public function create(Request $request)
     {
-       // Validasi input
+        // Validasi input
         $request->validate([
             'nama_program' => 'required|string|max:255',
             'deskripsi' => 'required|string',
@@ -46,17 +47,23 @@ class ProgramController extends Controller
 
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
-            // Ganti spasi dengan tanda hubung pada nama file
             $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
-            // Simpan file ke storage
             $filePath = $file->storeAs('uploads/thumbnails', $fileName, 'public');
-            // Simpan path file ke dalam database
-            $program->thumbnail = '/storage/' . $filePath;
+
+            // Resize gambar menggunakan Intervention
+            $image = Image::make(public_path('/storage/' . $filePath))->resize(600, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode();
+
+            Storage::disk('public')->put('uploads/thumbnails/' . $fileName, $image);
+
+            $program->thumbnail = '/storage/uploads/thumbnails/' . $fileName;
         }
 
         $program->save();
         return redirect('admin/program');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -107,33 +114,35 @@ class ProgramController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Temukan data program berdasarkan id
         $program = Program::find($id);
         if ($program) {
             $program->nama_program = $request->nama_program;
             $program->deskripsi_program = $request->deskripsi;
 
-            // Jika ada file thumbnail baru diunggah
             if ($request->hasFile('thumbnail')) {
                 // Hapus file lama jika ada
                 if ($program->thumbnail) {
                     Storage::disk('public')->delete(str_replace('/storage/', '', $program->thumbnail));
                 }
-                
-                // Unggah file baru
+
                 $file = $request->file('thumbnail');
                 $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
                 $filePath = $file->storeAs('uploads/thumbnails', $fileName, 'public');
-                $program->thumbnail = '/storage/' . $filePath;
+
+                // Resize gambar menggunakan Intervention
+                $image = Image::make(public_path('/storage/' . $filePath))->resize(600, 300, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode();
+
+                Storage::disk('public')->put('uploads/thumbnails/' . $fileName, $image);
+
+                $program->thumbnail = '/storage/uploads/thumbnails/' . $fileName;
             }
 
-            // Simpan perubahan ke dalam database
             $program->save();
 
-            // Redirect dengan pesan sukses
             return redirect()->route('program')->with('success', 'Program berhasil diupdate.');
         } else {
-            // Redirect dengan pesan error jika data tidak ditemukan
             return redirect()->route('program')->with('error', 'Program tidak ditemukan.');
         }
     }

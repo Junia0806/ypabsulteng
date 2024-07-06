@@ -11,7 +11,7 @@ class KegiatanController extends Controller
     public function index($id)
     {
         $data       = DB::table('infos')->first();
-        $detail     = DB::table('sub_programs')->where('id_program', $id)->get();
+        $detail     = DB::table('sub_programs')->where('id', $id)->get();
 
         $id_sub     = $detail->first()->id;
         $photo      = DB::table('pictures')->where('id_sub', $id_sub)->get();

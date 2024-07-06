@@ -25,7 +25,7 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="post-box">
                             <div class="post-img">
-                                <img src="{{ asset($pr->thumbnail) }}" class="img-fluid" alt="">
+                                <img src="{{ asset($pr->thumbnail) }}" alt="">
                             </div>
                             <a href="{{ route('detail_program', $pr->id_program) }}" class="readmore stretched-link">
                                 <h3 class="post-title">{{ $pr->nama_program }} </h3>

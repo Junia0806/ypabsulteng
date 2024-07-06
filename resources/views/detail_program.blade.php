@@ -21,10 +21,9 @@
 
                     <article class="blog-details">
 
-                        <div class="post-img">
+                        <div>
                             <img src={{ asset($detailsProgram['thumbnail']) }}
-                                alt="" class="img-fluid"
-                                style="display: flex; justify-content: center; width:100%; height:30%;">
+                                alt="" class="img-thumbnail">
                         </div>
 
                         <h2 class="title">{{ $detailsProgram['nama_program'] }}</h2>
@@ -49,8 +48,8 @@
 
                                 @foreach ($subProgram as $subPro) 
                                         <div class="post-item mt-3">
-                                            <div class="post-img">
-                                                <img src="{{ asset($photo) }}" class="img-fluid" alt="">
+                                            <div>
+                                                <img src="{{ asset($photo) }}" class="img-thumbnail" alt="">
                                             </div>
                                             <div>
                                                 <h4><a href="{{ route('detail_kegiatan', $subPro->id) }}">{{ $subPro->nama_sub }}

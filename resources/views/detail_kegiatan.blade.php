@@ -48,15 +48,28 @@
                                         <p id="caption"></p>
                                     </div>
 
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         @php $index = 1; @endphp
                                         @foreach ($photo as $pt)
                                             <div class="column">
-                                                <img class="demo cursor" src="{{ asset($pt->nama_gambar) }}" style="width:100%" onclick="currentSlide({{ $index }})" alt="Dokumentasi {{ $index }}">
+                                                <img class="demo cursor" src="{{ asset($pt->nama_gambar) }}" style="width: 100%;" onclick="currentSlide({{ $index }})" alt="Dokumentasi {{ $index }}">
                                             </div>
                                             @php $index++; @endphp
                                         @endforeach
+                                    </div> --}}
+
+                                    <div class="row gy-5">
+                                        @foreach ($photo as $pt)
+                                            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                                <div class="post-box">
+                                                    <div class="post-img">
+                                                        <img class="demo cursor" src="{{ asset($pt->nama_gambar) }}" style="width: 100%;" onclick="currentSlide({{ $loop->index + 1 }})" alt="Dokumentasi {{ $loop->index + 1 }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
+
                                 </div>
                             </div>
                         @endforeach
