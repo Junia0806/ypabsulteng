@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image; // Tambahkan ini untuk menggunakan Intervention
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProgramController extends Controller
 {
@@ -32,37 +33,48 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'nama_program' => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+    public function create(Request $request){
+    // Validasi input
+    $validatedData = $request->validate([
+        'nama_program' => 'required|string|max:255',
+        'deskripsi' => 'required|string',
+        'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-        $program = new Program;
-        $program->nama_program = $request->nama_program;
-        $program->deskripsi_program = $request->deskripsi;
+    $program = new Program;
+    $program->nama_program = $validatedData['nama_program'];
+    $program->deskripsi_program = $validatedData['deskripsi'];
 
-        if ($request->hasFile('thumbnail')) {
-            $file = $request->file('thumbnail');
-            $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
-            $filePath = $file->storeAs('uploads/thumbnails', $fileName, 'public');
+    if ($request->hasFile('thumbnail')) {
+        $file = $request->file('thumbnail');
+        $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
+        $filePath = $file->storeAs('uploads/thumbnails', $fileName, 'public');
 
-            // Resize gambar menggunakan Intervention
-            $image = Image::make(public_path('/storage/' . $filePath))->resize(600, 300, function ($constraint) {
+        $image = Image::make(public_path('/storage/' . $filePath));
+        $width = $image->width();
+        $height = $image->height();
+
+        // Memastikan aspect ratio 2:1
+        if ($width / $height != 2) {
+            // Memaksa konversi ke aspect ratio 2:1
+            $image->resize(2 * $height, $height, function ($constraint) {
                 $constraint->aspectRatio();
             })->encode();
-
-            Storage::disk('public')->put('uploads/thumbnails/' . $fileName, $image);
-
-            $program->thumbnail = '/storage/uploads/thumbnails/' . $fileName;
         }
 
-        $program->save();
-        return redirect('admin/program');
+        $image->resize(600, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode();
+
+        Storage::disk('public')->put('uploads/thumbnails/' . $fileName, $image);
+        $program->thumbnail = '/storage/uploads/thumbnails/' . $fileName;
     }
+
+    $program->save();
+
+    Alert::success('Success', 'Data Berhasil Disimpan!');
+    return redirect('admin/program');
+}
 
 
     /**

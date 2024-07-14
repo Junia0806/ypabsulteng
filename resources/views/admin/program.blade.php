@@ -210,14 +210,23 @@
                             @csrf
                             <div class="form-group">
                                 <label for="nama-program" class="col-form-label">Nama Program:</label>
-                                <input type="text" class="form-control" name="nama_program">
+                                <input type="text" class="form-control" name="nama_program" value="{{ old('nama_program') }}">
+                                 @error('nama_program')
+                                    <p style="color:red; font-size:12px;">{{ $message }}</p>
+                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Deskripsi:</label>
-                                <textarea class="form-control" name="deskripsi"></textarea>
+                                <textarea class="form-control" name="deskripsi">{{ old('nama_program') }}</textarea>
+                                @error('deskripsi')
+                                    <p style="color:red; font-size:12px;">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="imageInput" class="col-form-label">Upload Thumbnail:</label>
+                                @error('thumbnail')
+                                        <p style="color:red; font-size:12px;">{{ $message }}</p>
+                                    @enderror
                                 <div
                                     style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
                                     <input type="file" id="imageInput" name="thumbnail" accept="image/*"
@@ -232,7 +241,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p style="color:red; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
+                            <p style="color:gray; font-size:12px;">Nb: Upload 1 gambar untuk Thumbnail Program</p>
                             <div class="modal-footer">
                                 <button type="button" class="btn bg-gradient-secondary"
                                     data-bs-dismiss="modal">Batal</button>
@@ -243,43 +252,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- <div class="modal fade" id="exampleModalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Kriteria</h5>
-                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="{{ route('program.create') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label for="nama-kriteria" class="col-form-label">Nama Kriteria:</label>
-                                <input type="text" class="form-control" name="nama_kriteria">
-                            </div>
-                            <div class="form-group">
-                                <label for="bobot" class="col-form-label">Bobot:</label>
-                                <input type="text" class="form-control" name="bobot">
-                            </div>
-                            <div class="form-group">
-                                <label for="jenis" class="col-form-label">Cost/Benefit:</label>
-                                <select class="form-control" name="jenis">
-                                    <option value="Cost">Cost</option>
-                                    <option value="Benefit">Benefit</option>
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn bg-gradient-primary">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 
     <script>
@@ -294,4 +266,5 @@
             }
         }
     </script>
+    @include('sweetalert::alert')
 @endsection
