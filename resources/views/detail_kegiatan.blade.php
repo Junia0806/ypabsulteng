@@ -1,12 +1,12 @@
 @extends('layout.default')
-
+@foreach ($detail as $dt)
 @section('content')
     <!-- ======= Call To Action Section ======= -->
     <section id="call-to-action" class="call-to-action1">
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h3>Bidang Pendidikan Keagamaan Formal dan Non Formal</h3>
+                    <h3>{{ $dt->nama_sub }}</h3>
                 </div>
             </div>
         </div>
@@ -18,10 +18,9 @@
             <div class="row g-5">
                 <div class="col-lg-12 text-center" data-aos="fade-up" data-aos-delay="200">
                     <article class="blog-details">
-                        @foreach ($detail as $dt)
-                            <div class="row justify-content-center">
-                                <div class="col-lg-6 text-center">
-                                    <h2 class="title">{{ $dt->nama_sub }}</h2>
+                        
+                            <div class="row">
+                                <div class="col-lg-12" style="text-align: justify">
                                     <p>{{ $dt->deskripsi_sub }}</p>
                                 </div>
                             </div>

@@ -14,9 +14,21 @@ class DetailProgramController extends Controller
         $program    = DB::table('programs')->where('id_program', $id)->first();
         $info       = DB::table('infos')->first();
 
-        $id_sub     = $detail->first()->id;
-        $photo      = DB::table('pictures')->where('id_sub', $id_sub)->first();
-        
+        // Inisialisasi array untuk menyimpan gambar pertama dari masing-masing id_sub
+        $photos = [];
+
+        // Iterasi melalui setiap sub_program untuk mengambil gambar pertama
+        foreach ($detail as $dt) {
+            $photo = DB::table('pictures')->where('id_sub', $dt->id)->first();
+            if ($photo) {
+                $photos[$dt->id] = $photo->nama_gambar;
+            } else {
+                $photos[$dt->id] = null;
+            }
+        }
+
+        // dd($photos);
+
         return view
         ('detail_program', 
             [
@@ -27,7 +39,7 @@ class DetailProgramController extends Controller
                 ],
 
                 'subProgram' => $detail,
-                'photo'      => $photo->nama_gambar,
+                'photo'      => $photos,
 
                 'alamat'     => $info->alamat,
                 'notelp'     => $info->no_telp,
