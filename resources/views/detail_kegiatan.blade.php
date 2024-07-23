@@ -24,14 +24,11 @@
                                     <p>{{ $dt->deskripsi_sub }}</p>
                                 </div>
                             </div>
-                            <h2 class="title" style="text-align:center">Dokumentasi Kegiatan</h2>
-                            <br>
                             <div class="utama">
                                 <div class="container_myslide">
                                     @php $index = 1; @endphp
                                     @foreach ($photo as $pt)
                                         <div class="mySlides">
-                                            <div class="numbertext">{{ $index }} / {{ count($photo) }}</div>
                                             <img src="{{ asset($pt->nama_gambar) }}" class="img_myslide">
                                         </div>
                                         @php $index++; @endphp
@@ -48,8 +45,8 @@
                                         @foreach ($photo as $pt)
                                             <div class="column">
                                                 <img class="demo cursor" src="{{ asset($pt->nama_gambar) }}"
-                                                    style="width: 100%;" onclick="currentSlide({{ $loop->index + 1 }})"
-                                                    alt="Dokumentasi {{ $loop->index + 1 }} / {{ count($photo) }} ">
+                                                    style="" onclick="currentSlide({{ $loop->index + 1 }})"
+                                                    alt="Dokumentasi Kegiatan {{ $loop->index + 1 }} / {{ count($photo) }} ">
                                             </div>
                                         @endforeach
                                     </div>
