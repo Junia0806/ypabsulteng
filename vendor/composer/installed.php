@@ -818,6 +818,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'realrashid/sweet-alert' => array(
+            'pretty_version' => 'v7.2.0',
+            'version' => '7.2.0.0',
+            'reference' => '7890f3d3a0f45ea65b90300a823681a99a1d2dd6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../realrashid/sweet-alert',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'rhumsaa/uuid' => array(
             'dev_requirement' => false,
             'replaced' => array(
