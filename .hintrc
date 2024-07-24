@@ -15,6 +15,15 @@
       {
         "link-name": "off"
       }
-    ]
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "axe/text-alternatives": "off",
+    "no-inline-styles": "off",
+    "meta-charset-utf-8": "off"
   }
 }

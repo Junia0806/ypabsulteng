@@ -5,7 +5,7 @@
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
-                    {{-- <h3>Bidang Pendidkan Keagamaan Formal dan Non Formal</h3> --}}
+                    <h3>{{ $detailsProgram['nama_program'] }}</h3>
                 </div>
             </div>
         </div>
@@ -20,16 +20,15 @@
                 <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
 
                     <article class="blog-details">
+                        {{-- <h2 class="title">{{ $detailsProgram['nama_program'] }}</h2> --}}
 
                         <div>
-                            <img src={{ asset($detailsProgram['thumbnail']) }}
-                                alt="" class="img-thumbnail">
+                            <img src={{ asset($detailsProgram['thumbnail']) }} alt="" class="img-thumbnail1">
                         </div>
 
-                        <h2 class="title">{{ $detailsProgram['nama_program'] }}</h2>
-
+                       
                         <div class="content">
-                            <p>
+                            <p class="detailprogram">
                                 {{ $detailsProgram['deskripsi_program'] }}
                             </p>
                         </div><!-- End post content -->
@@ -45,19 +44,16 @@
                             <h3 class="sidebar-title">Program Kegiatan</h3>
 
                             <div class="mt-3">
-
-                                @foreach ($subProgram as $subPro) 
-                                        <div class="post-item mt-3">
-                                            <div>
-                                                <img src="{{ asset($photo) }}" class="img-thumbnail" alt="">
-                                            </div>
-                                            <div>
-                                                <h4><a href="{{ route('detail_kegiatan', $subPro->id) }}">{{ $subPro->nama_sub }}
-                                                    </a></h4>
-                                            </div>
-                                        </div><!-- End recent post item-->
+                                @foreach ($subProgram as $subPro)
+                                    <div class="post-item mt-3">
+                                        <div>
+                                            <img src="{{ asset($photo[$subPro->id]) }}" class="img-thumbnail" alt="">
+                                        </div>
+                                        <div>
+                                            <h4><a href="{{ route('detail_kegiatan', $subPro->id) }}">{{ $subPro->nama_sub }}</a></h4>
+                                        </div>
+                                    </div><!-- End recent post item-->
                                 @endforeach
-
                             </div>
 
                         </div><!-- End sidebar recent posts-->
