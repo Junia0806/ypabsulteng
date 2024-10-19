@@ -26,7 +26,7 @@
                             <img src={{ asset($detailsProgram['thumbnail']) }} alt="" class="img-thumbnail1">
                         </div>
 
-                       
+
                         <div class="content">
                             <p class="detailprogram">
                                 {{ $detailsProgram['deskripsi_program'] }}
@@ -39,21 +39,27 @@
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
 
                     <div class="sidebar ps-lg-4">
-
                         <div class="sidebar-item recent-posts">
                             <h3 class="sidebar-title">Program Kegiatan</h3>
 
                             <div class="mt-3">
-                                @foreach ($subProgram as $subPro)
-                                    <div class="post-item mt-3">
-                                        <div>
-                                            <img src="{{ asset($photo[$subPro->id]) }}" class="img-thumbnail" alt="">
-                                        </div>
-                                        <div>
-                                            <h4><a href="{{ route('detail_kegiatan', $subPro->id) }}">{{ $subPro->nama_sub }}</a></h4>
-                                        </div>
-                                    </div><!-- End recent post item-->
-                                @endforeach
+                                @if ($subProgram->isEmpty())
+                                    <p class="text-muted">Belum ada kegiatan untuk program ini</p>
+                                @else
+                                    @foreach ($subProgram as $subPro)
+                                        <div class="post-item mt-3">
+                                            <div>
+                                                <img src="{{ asset($photo[$subPro->id]) }}" class="img-thumbnail"
+                                                    alt="">
+                                            </div>
+                                            <div>
+                                                <h4><a
+                                                        href="{{ route('detail_kegiatan', $subPro->id) }}">{{ $subPro->nama_sub }}</a>
+                                                </h4>
+                                            </div>
+                                        </div><!-- End recent post item-->
+                                    @endforeach
+                                @endif
                             </div>
 
                         </div><!-- End sidebar recent posts-->
