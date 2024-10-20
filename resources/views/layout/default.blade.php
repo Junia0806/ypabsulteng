@@ -80,8 +80,8 @@
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
-                        <a href="index.html" class="logo d-flex align-items-center">
-                            <img src="StyleTemplate/assets/img/logo.png" alt="" width="auto" height="400">
+                        <a href="#" class="logo d-flex align-items-center">
+                            <img src="http://127.0.0.1:8000/StyleTemplate/assets/img/kemitraan/logoy2.png"  alt="#" width="auto" height="400">
                         </a>
                         <p>Yayasan Peduli Anak Bangsa Indonesia</p>
                         <div class="social-links d-flex  mt-3">
