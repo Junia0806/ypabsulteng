@@ -177,6 +177,64 @@ class SubprogramController extends Controller
         }
     }
 
+//     public function update(Request $request, $id)
+// {
+//     // Validasi input
+//     $request->validate([
+//         'id_program' => 'required|exists:programs,id',
+//         'nama_sub' => 'required|string|max:255',
+//         'deskripsi_sub' => 'required|string',
+//         'gambar' => 'nullable|array|max:5',
+//         'gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//     ]);
+
+//     // Cari subprogram berdasarkan id
+//     $subprogram = SubProgram::findOrFail($id); // Menggunakan findOrFail untuk langsung mengembalikan 404 jika tidak ditemukan
+
+//     dd($subprogram);
+//     // Update data subprogram
+//     $subprogram->id_program = $request->id_program;
+//     $subprogram->nama_sub = $request->nama_sub;
+//     $subprogram->deskripsi_sub = $request->deskripsi_sub;
+//     $subprogram->save();
+
+//     // Proses upload gambar jika ada
+//     if ($request->hasFile('gambar')) {
+//         // Hapus gambar lama yang terhubung dengan subprogram
+//         foreach ($subprogram->picture as $oldPicture) {
+//             // Hapus file gambar dari storage
+//             Storage::disk('public')->delete(str_replace('/storage/', '', $oldPicture->nama_gambar));
+//             // Hapus record gambar dari database
+//             $oldPicture->delete();
+//         }
+
+//         // Simpan gambar baru
+//         foreach ($request->file('gambar') as $file) {
+//             $fileName = time() . '_' . str_replace(' ', '-', $file->getClientOriginalName());
+//             $filePath = $file->storeAs('uploads/subprograms', $fileName, 'public');
+
+//             // Resize gambar menggunakan Intervention Image
+//             $image = Image::make(Storage::disk('public')->path($filePath))->resize(300, null, function ($constraint) {
+//                 $constraint->aspectRatio();
+//                 $constraint->upsize();
+//             })->encode();
+
+//             // Simpan file yang sudah diresize
+//             Storage::disk('public')->put($filePath, $image);
+
+//             // Simpan data gambar baru ke tabel pictures
+//             $picture = new Picture;
+//             $picture->id_sub = $subprogram->id; // Hubungkan gambar dengan subprogram
+//             $picture->nama_gambar = 'uploads/subprograms/' . $fileName; // Path gambar yang disimpan tanpa /storage/
+//             $picture->save();
+//         }
+//     }
+
+//     // Redirect dengan pesan sukses
+//     return redirect('admin/program/kelola/' . $request->id_program)->with('success', 'Subprogram berhasil diupdate.');
+// }
+
+
 
 
     /**

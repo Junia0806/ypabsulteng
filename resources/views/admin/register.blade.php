@@ -42,24 +42,38 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('register.post') }}">
                                         @csrf
-                                        <label>Name</label>
+                                        <label>Nama</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Name" name="name" required>
+                                            <input type="text" class="form-control" placeholder="Masukkan Nama"
+                                                name="name" required>
                                         </div>
                                         <label>Email</label>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                            <input type="email" class="form-control" placeholder="Masukkan Email"
+                                                name="email" required>
                                         </div>
                                         <label>Password</label>
-                                        <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                        <div class="mb-3 position-relative">
+                                            <input type="password" name="password" id="password" class="form-control"
+                                                placeholder="Masukkan Password" aria-label="Password" required
+                                                aria-describedby="password-addon">
+                                            <i class="fas fa-eye position-absolute end-0 top-0 mt-3 me-2"
+                                                id="togglePassword" style="cursor: pointer;"></i>
                                         </div>
-                                        <label>Confirm Password</label>
-                                        <div class="mb-3">
-                                            <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required>
+                                        <label>Konfirmasi Password</label>
+                                        <div class="mb-3 position-relative">
+                                            <input type="password" name="password_confirmation"
+                                                id="password_confirmation" class="form-control"
+                                                placeholder="Masukkan Password Yang Sama"
+                                                aria-label="password_confirmation" required
+                                                aria-describedby="password-addon">
+                                            <i class="fas fa-eye position-absolute end-0 top-0 mt-3 me-2"
+                                                id="togglePasswordKonfirmasi" style="cursor: pointer;"></i>
                                         </div>
+                                        <div id="error-message" style="color: red; font-size: 14px; display: none;"></div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Register</button>
+                                            <button type="submit"
+                                                class="btn bg-gradient-info w-100 mt-4 mb-0">Register</button>
                                         </div>
                                     </form>
                                 </div>
@@ -67,7 +81,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('{{ asset('AdminUI/assets/img/admin/cover2.jpeg') }}')"></div>
+                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
+                                    style="background-image:url('{{ asset('AdminUI/assets/img/admin/cover2.jpeg') }}')">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,6 +105,41 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
+
+        //Pesan kesalahan saat register akun
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const password = document.querySelector('#password').value;
+            const passwordConfirmation = document.querySelector('#password_confirmation').value;
+            const errorMessage = document.querySelector('#error-message');
+
+            if (password !== passwordConfirmation) {
+                event.preventDefault(); // Menghentikan form dari pengiriman
+                errorMessage.innerText = 'Password dan Konfirmasi Password tidak sama.';
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none'; // Sembunyikan pesan error jika tidak ada masalah
+            }
+        });
+        //Lihat password
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function(e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        //Lihat password (konfirmasi)
+        const togglePasswordKonfirmasi = document.querySelector('#togglePasswordKonfirmasi');
+        const passwordKonfirmasi = document.querySelector('#password_confirmation');
+        togglePasswordKonfirmasi.addEventListener('click', function(e) {
+            const type = passwordKonfirmasi.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordKonfirmasi.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

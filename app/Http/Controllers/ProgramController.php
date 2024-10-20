@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Program;
+use App\Models\SubProgram;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -169,10 +170,16 @@ class ProgramController extends Controller
     {
         $program = Program::find($id); // Gunakan model programs
         if ($program) {
+            // Hapus subprogram berdasarkan id_program yang sesuai dengan program yang dihapus
+            SubProgram::where('id_program', $id)->delete();
+            
+            // Hapus program
             $program->delete();
-            return redirect()->route('program')->with('success', 'Program berhasil dihapus.');
+            
+            return redirect()->route('program')->with('success', 'Program dan subprogram berhasil dihapus.');
         } else {
             return redirect()->route('program')->with('error', 'Program tidak ditemukan.');
         }
     }
+
 }
