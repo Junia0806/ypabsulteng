@@ -128,34 +128,35 @@
                                                                         pilih foto kegiatan (maks. 5 gambar)</p> --}}
 
                                                                     <div class="form-group">
-                                                                        <label for="imageInput-edit-{{ $subProgram->id}}"
+                                                                        <label for="imageInput-edit-{{ $subProgram->id }}"
                                                                             class="col-form-label">Ubah Foto
                                                                             Kegiatan:</label>
                                                                         <div
                                                                             style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
-                                                                            <input type="file" id="imageInput-edit-{{ $subProgram->id}}"
+                                                                            <input type="file"
+                                                                                id="imageInput-edit-{{ $subProgram->id }}"
                                                                                 name="gambar[]" accept="image/*" multiple
                                                                                 style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
-                                                                                onchange="displayFileEdit({{ $subProgram->id}})" required>
+                                                                                onchange="displayFileEdit({{ $subProgram->id }})">
                                                                             <div class="text-center">
                                                                                 <p style="color:gray-500; font-size:14px;">
                                                                                     Klik di sini dan pilih 5 foto kegiatan
                                                                                 </p>
-                                                                                <p id="fileName-edit-{{ $subProgram->id}}"
+                                                                                <p id="fileName-edit-{{ $subProgram->id }}"
                                                                                     style="color: #cb10b2; font-size: small; font-weight: 500; margin-top: 2px; white-space: pre-wrap;"
                                                                                     class="text-[#CB6A10] text-sm font-medium mt-2 whitespace-pre-wrap">
                                                                                 </p>
                                                                             </div>
                                                                         </div>
-                                                                        <p id="errorMessage-edit-{{ $subProgram->id}}"
+                                                                        <p id="errorMessage-edit-{{ $subProgram->id }}"
                                                                             style="color:red; display:none;"></p>
                                                                     </div>
 
                                                                     <div class="form-group">
                                                                         <div class="text-center my-3"
-                                                                            id="thumbnailPreview-edit-{{ $subProgram->id}}"
+                                                                            id="thumbnailPreview-edit-{{ $subProgram->id }}"
                                                                             style="display: none;">
-                                                                            <div id="imagePreviewContainer-edit-{{ $subProgram->id}}"
+                                                                            <div id="imagePreviewContainer-edit-{{ $subProgram->id }}"
                                                                                 style="display: flex; gap: 10px; flex-wrap: wrap;">
                                                                             </div>
                                                                         </div>
@@ -239,11 +240,11 @@
                                 <label for="nama-program" class="col-form-label">Nama Sub-Program:</label>
                                 <input type="hidden" class="form-control" id="nama-program" name="id_program"
                                     value="{{ $id_program }}">
-                                <input type="text" class="form-control" id="nama-program" name="nama_sub" required>
+                                <input type="text" class="form-control" id="nama-program" name="nama_sub" >
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Deskripsi:</label>
-                                <textarea class="form-control" id="message-text" name="deskripsi_sub" required></textarea>
+                                <textarea class="form-control" id="message-text" name="deskripsi_sub" ></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="imageInput-add" class="col-form-label">Upload Foto Kegiatan:</label>
@@ -251,7 +252,7 @@
                                     style="display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; border-style: dashed; border-width: 2px; border-color: #cb10b2; border-radius: 8px;">
                                     <input type="file" id="imageInput-add" name="gambar[]" accept="image/*" multiple
                                         style="width: 100%; margin:0%; position:absolute; cursor: pointer; inset:unset; opacity:0;"
-                                        onchange="displayFileTambah()" required>
+                                        onchange="displayFileTambah()" >
                                     <div class="text-center">
                                         <p style="color:gray-500; font-size:14px;">Klik di sini dan pilih 5 foto kegiatan
                                         </p>
